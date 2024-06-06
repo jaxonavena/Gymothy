@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   # get "/articles", to: "articles#index"
   # get "/articles/:id", to: "articles#show"
   # The two get routes above get smushed into resources
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 end
