@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   include Visible
 
-  has_many :comments
+  has_many :comments, dependent: :destroy # if an article gets destroyed, so will its comments
 
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 10 }
