@@ -11,7 +11,8 @@
 </ul>
 
 <h2>Comments</h2>
-<%= render @article.comments # this is rendering the _comment partial and replaces the commented code below%>
+<%= render @article.comments %> <!-- this is rendering the _comment partial and replaces the commented code below-->
+<!--
 <%# <% @article.comments.each do |comment|
   <p>
     <strong>Commenter:</strong>
@@ -23,9 +24,11 @@
     <%= comment.body
   </p>
 <% end %>
+-->
 
 <h2>Add a comment: </h2>
-<%= render 'comments/form' # this is also a partial that replaces the below code%>
+<%= render 'comments/form' %> <!-- this is also a partial that replaces the below code -->
+<!--
 <%# <%= form_with model: [ @article, @article.comments.build ] do |form|
   <p>
     <%= form.label :commenter %>
@@ -39,3 +42,4 @@
     <%= form.submit
   </p>
 <% end %>
+-->
