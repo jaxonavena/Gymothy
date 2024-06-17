@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   # get "/articles", to: "articles#index"
   # get "/articles/:id", to: "articles#show"
-  # The two get routes above get smushed into resources
+  # The two get routes above and all the other basic CRUD routes get smushed into resources
   resources :articles do
     resources :comments
   end
+
+  resources :businesses
 end
