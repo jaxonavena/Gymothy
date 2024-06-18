@@ -24,6 +24,6 @@ class SitesController < ApplicationController
   private
 
   def site_params
-    params.require(:site).permit(:latitiude, :longitude, :address, :manager_name, :phone)
+    params.require(:site).permit(:latitude, :longitude, :address, :phone, :name)
   end
 end

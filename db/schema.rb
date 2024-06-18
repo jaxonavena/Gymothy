@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_18_032009) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_18_045257) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -38,15 +38,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_18_032009) do
   end
 
   create_table "sites", force: :cascade do |t|
-    t.decimal "latitude"
-    t.decimal "longitude"
+    t.string "latitude"
+    t.string "longitude"
     t.string "address"
     t.string "manager_name"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.integer "business_id"
+    t.index ["business_id"], name: "index_sites_on_business_id"
   end
 
   add_foreign_key "comments", "articles"
+  add_foreign_key "sites", "businesses"
 end
