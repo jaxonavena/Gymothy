@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_07_031449) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_18_032009) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
+  end
+
+  create_table "businesses", force: :cascade do |t|
+    t.string "name"
+    t.string "owner_name"
+    t.string "owner_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -27,6 +35,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_07_031449) do
     t.datetime "updated_at", null: false
     t.string "status"
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "address"
+    t.string "manager_name"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   add_foreign_key "comments", "articles"
