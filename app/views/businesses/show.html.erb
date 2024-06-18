@@ -1,1 +1,10 @@
 <h1><%= @business.name %></h1>
+
+<% @sites = Site.where(business_id: @business.id) %>
+<ul>
+  <%= @sites.each do |site| %>
+  <li>
+    <%= link_to site.name, site%>
+  </li>
+  <% end %>
+</ul>

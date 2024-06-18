@@ -1,0 +1,6 @@
+<h1><%= @site.name %></h1>
+
+<% business = Business.find(@site.business_id)%>
+<p>Business: <%= link_to business.name, business %></p>
+<p>Site ID: <%= @site.id %></p>
+
