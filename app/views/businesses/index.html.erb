@@ -3,9 +3,9 @@
   <%= link_to "Create Business", new_business_path, class: "nav-link" %>
 </nav>
 
-<div class="business-display-container">
+<div class="sectioned-display-container">
     <% @businesses.each do |business| %>
-    <div class="business-display-item">
+    <div class="sectioned-display-item">
         <%= link_to business.name, business %>
     </div>
     <% end %>

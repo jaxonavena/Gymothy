@@ -48,7 +48,7 @@
     font-family:Arial, Helvetica, sans-serif;
  }
 
- .business-display-container{
+ .sectioned-display-container{
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -56,8 +56,8 @@
    align-items: center;
  }
 
- .business-display-item {
-  flex: 1 1 calc(33% - 2vh); /* 3 items per row with spacing */
+ .sectioned-display-item {
+  flex: 1 1 calc(33% - 2vh); /* supposed to be 3 items per row with spacing, but it's doing 2*/
   margin: 1vh;
   background-color: white;
   border: 1px solid #ccc;

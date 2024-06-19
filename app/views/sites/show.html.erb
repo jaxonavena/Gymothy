@@ -1,4 +1,6 @@
-<h1><%= @site.name %></h1>
+<nav class="nav-container">
+  <h1><%= @site.name %></h1>
+</nav>
 
 <% business = Business.find(@site.business_id)%>
 <p>Business: <%= link_to business.name, business %></p>
