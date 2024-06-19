@@ -1,11 +1,13 @@
-<h1>Businesses</h1>
+<nav class="nav-container">
+  <h1>Businesses</h1>
+  <%= link_to "Create Business", new_business_path, class: "nav-link" %>
+</nav>
 
-<ul>
-  <% @businesses.each do |business| %>
-    <li>
-      <%= link_to business.name, business %>
-    </li>
-  <% end %>
-</ul>
+<div class="business-display-container">
+    <% @businesses.each do |business| %>
+    <div class="business-display-item">
+        <%= link_to business.name, business %>
+    </div>
+    <% end %>
+</div>
 
-<%= link_to "New Business", new_business_path %>
