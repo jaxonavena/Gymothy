@@ -1,0 +1,36 @@
+<style>
+  .flex_container{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   justify-content: space-around;
+   /* align-items: center; */
+   background-color: white;
+  }
+
+  .credentials_bubble {
+  border-radius: 15px 50px 30px;
+  background: #668ced;
+  padding: 1vw;
+  width: 20vw;
+  height: 22vh;
+  }
+</style>
+
+<div class="flex_container">
+  <div class="credentials_bubble">
+    <h1> Login or Sign Up </h1>
+  </div>
+</div>
+
+<div class="flex_container">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" />
+  </div>
+
+  <div>
+    <label for="pass">Password (8 characters minimum):</label>
+    <input type="password" id="pass" name="password" minlength="8" required />
+  </div>
+</div>
