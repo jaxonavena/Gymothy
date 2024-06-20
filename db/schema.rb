@@ -16,6 +16,40 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_141953) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
+  create_table "businesses", force: :cascade do |t|
+    t.string "name"
+    t.string "owner_name"
+    t.string "owner_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.integer "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+    t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.string "latitude"
+    t.string "longitude"
+    t.string "address"
+    t.string "manager_name"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "business_id"
+    t.index ["business_id"], name: "index_sites_on_business_id"
+  end
+
+  add_foreign_key "comments", "articles"
+  add_foreign_key "sites", "businesses"
 end
