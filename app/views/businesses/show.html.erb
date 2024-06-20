@@ -1,10 +1,20 @@
-<h1><%= @business.name %></h1>
+<nav class="nav-container">
+  <h1><%= @business.name %></h1>
+</nav>
 
-<% @sites = Site.where(business_id: @business.id) %>
-<ul>
-  <%= @sites.each do |site| %>
-  <li>
-    <%= link_to site.name, site%>
-  </li>
+<div class="sectioned-display-container">
+  <% @sites = Site.where(business_id: @business.id) %>
+  <% if @sites.any? %>
+
+    <% @sites.each do |site| %>
+      <div class="sectioned-display-item">
+      <%= link_to site.name, site%>
+      </div>
+    <% end %>
+
+  <% else %>
+    <div class="sectioned-display-item">
+      This Business Has No Sites
+    </div>
   <% end %>
-</ul>
+</div>
