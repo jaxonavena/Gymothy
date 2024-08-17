@@ -6,9 +6,9 @@
   <% @sites = Site.where(business_id: @business.id) %>
   <% if @sites.any? %>
 
-    <% @sites.each do |site| %>
+    <% @business.sites.each do |site| %>
       <div class="sectioned-display-item">
-      <%= link_to site.name, site%>
+      <%= link_to site.name, business_site_path(site)%>
       </div>
     <% end %>
 

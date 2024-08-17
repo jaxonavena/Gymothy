@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root "login_signup_pages#index"
+  root "businesses#index"
 
   get "/login_signup_page", to: "login_signup_page#index"
 
@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :businesses
+  resources :businesses do
+    resources :sites
+  end
 
-  resources :sites
-
+  resources :users, only: [:new, :create, :index, :show]
+  resources :sessions, only: [:new, :create, :destroy]
 end

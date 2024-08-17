@@ -1,18 +1,21 @@
 class SitesController < ApplicationController
+  before_action :set_site, only: %i[show]
+  before_action :set_business, only: %i[new create index]
+
   def index
-    @sites = Site.all
+    @sites = @business.sites
   end
 
   def show
-    @site = Site.find(params[:id])
+    @site
   end
 
   def new
-    @site = Site.new
+    @site = @business.sites.new
   end
 
   def create
-    @site = Site.new(site_params)
+    @site = @business.site.new(site_params)
 
     if @site.save
       redirect_to @site
@@ -25,5 +28,13 @@ class SitesController < ApplicationController
 
   def site_params
     params.require(:site).permit(:latitude, :longitude, :address, :phone, :name)
+  end
+
+  def set_site
+    @site = Site.accessible_by_user(current_user).find(params[:id])
+  end
+
+  def set_business
+    @business = Business.accessible_by_user(current_user).find(params[:business_id])
   end
 end
