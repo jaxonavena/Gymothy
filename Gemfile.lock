@@ -77,9 +77,19 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
     base64 (0.2.0)
+    bcrypt (3.1.20)
+    better_errors (2.10.1)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
+      rouge (>= 1.0.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
+    binding_of_caller (1.0.1)
+      debug_inspector (>= 1.2.0)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -97,6 +107,7 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
+    debug_inspector (1.2.0)
     drb (2.2.1)
     erubi (1.12.0)
     ffi (1.16.3)
@@ -213,6 +224,7 @@ GEM
       io-console (~> 0.5)
     rexml (3.2.8)
       strscan (>= 3.0.9)
+    rouge (4.3.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -289,6 +301,10 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  annotate
+  bcrypt (~> 3.1.7)
+  better_errors
+  binding_of_caller
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
