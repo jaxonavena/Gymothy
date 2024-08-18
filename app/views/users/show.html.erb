@@ -1,3 +1,15 @@
 <%= content_tag :h1, current_user.welcome %>
-<%= link_to "Sign out", session_path, method:"delete" %>
+
+<%
+# TODO: Fix this. I couldn't get an error resolved to get UJS working.
+# Module build failed (from ./node_modules/babel-loader/lib/index.js) (Check the console).
+
+# <%= link_to "Sign out", logout_path, method:"delete"
+%>
+
 <%= link_to "Home", root_path %>
+
+<%# Temporary workaround to bypass UJS issue from above. %>
+<%= form_with url: logout_path, method: :delete do %>
+  <%= submit_tag "Sign out" %>
+<% end %>
