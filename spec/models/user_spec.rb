@@ -14,7 +14,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'is not valid with a missing attribute' do
-    a_user.update_column(:email, nil)
+    a_user.update_column(:email, nil) # avoids validations
     expect(a_user).to_not be_valid
   end
 end
