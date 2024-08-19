@@ -38,3 +38,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Allows RSpec to persist some state between runs in order to support the `--only-failures` and `--next-failure` CLI options
+/spec/examples.txt
