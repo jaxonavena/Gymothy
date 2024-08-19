@@ -8,7 +8,7 @@ gem 'rails', '~> 7.1.3.4', '>= 7.1.3.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 6.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -38,8 +38,8 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+  gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
@@ -55,6 +55,13 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  # RSPEC GEMS -----------------------------------------------------------
+  gem 'database_cleaner-active_record', '~> 2.0' # For cleaning the database
+  gem 'factory_bot_rails', '~> 6.0' # For creating test data
+  gem 'faker', '~> 2.0' # For generating fake data
+  gem 'rspec-rails', '~> 5.0' # Replace with the latest version as needed
+  # ----------------------------------------------------------------------
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
