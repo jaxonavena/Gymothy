@@ -14,11 +14,11 @@ module AccessibleByUser
   included do
     if self == Site
       scope :accessible_by_user, ->(user) {
-        default_scope_for_accessible_by_user(user) || user.sites
+        default_scope_for_accessible_by_user(user)
       }
     elsif self == Business
       scope :accessible_by_user, ->(user) {
-        default_scope_for_accessible_by_user(user) || user.businesses
+        default_scope_for_accessible_by_user(user)
       }
     else
       # This is for stuff belonging to a site
