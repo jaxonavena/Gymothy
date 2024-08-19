@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SitesController < ApplicationController
   before_action :set_site, only: %i[show]
   before_action :set_business, only: %i[new create index]
