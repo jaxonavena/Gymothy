@@ -20,7 +20,8 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
-    # @sites = @business.sites
+    @sites = @business.sites
+    @members = @business.members
   end
 
   private

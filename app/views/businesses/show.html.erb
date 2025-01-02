@@ -3,24 +3,30 @@
 </nav>
 
 <div class="sectioned-display-container">
-  <% @sites = Site.where(business_id: @business.id) %>
   <% if @sites.any? %>
-
-    <% @business.sites.each do |site| %>
+    <div>Sites</div>
+    <% @sites.each do |site| %>
       <div class="sectioned-display-item">
       <%= link_to site.name, business_site_path(site)%>
       </div>
     <% end %>
-
-    <% @business.members.each do |member| %>
-      <div class="sectioned-display-item">
-      <%= member.name %>
-      </div>
-    <% end %>
-
   <% else %>
     <div class="sectioned-display-item">
       This Business Has No Sites
     </div>
   <% end %>
+
+  <% if @members.any? %>
+    <div>Members</div>
+    <% @members.each do |member| %>
+      <div class="sectioned-display-item">
+        <%= member.name %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="sectioned-display-item">
+      This Business Has No Members
+    </div>
+  <% end %>
+
 </div>
