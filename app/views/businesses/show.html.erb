@@ -12,6 +12,12 @@
       </div>
     <% end %>
 
+    <% @business.members.each do |member| %>
+      <div class="sectioned-display-item">
+      <%= member.name %>
+      </div>
+    <% end %>
+
   <% else %>
     <div class="sectioned-display-item">
       This Business Has No Sites
