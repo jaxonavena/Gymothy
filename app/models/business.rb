@@ -14,6 +14,8 @@
 class Business < ApplicationRecord
   include AccessibleByUser
 
-  has_many :sites
-  has_many :members
+  has_many :sites, dependent: :destroy
+
+  has_many :memberships, dependent: :destroy
+  has_many :members, through: :memberships
 end

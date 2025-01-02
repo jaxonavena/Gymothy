@@ -18,7 +18,8 @@
 require 'rails_helper'
 
 RSpec.describe Site, type: :model do
-  let(:a_site) { build(:site) }
+  let(:a_business) { build(:business) }
+  let(:a_site) { build(:site, business: a_business) }
 
   before do
     a_site.save!
