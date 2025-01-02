@@ -13,7 +13,7 @@
 #  updated_at   :datetime         not null
 #
 class Member < ApplicationRecord
-  has_many :memberships, dependent: destroy
+  has_many :memberships, dependent: :destroy
   has_many :businesses, through: :memberships
   # has_many :visits
   # has_many :sites, through: :visits

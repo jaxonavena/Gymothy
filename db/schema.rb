@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_19_030817) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_02_191614) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -46,6 +46,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_19_030817) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "business_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_memberships_on_business_id"
+    t.index ["member_id"], name: "index_memberships_on_member_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.string "latitude"
     t.string "longitude"
@@ -68,5 +77,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_19_030817) do
   end
 
   add_foreign_key "comments", "articles"
+  add_foreign_key "memberships", "businesses"
+  add_foreign_key "memberships", "members"
   add_foreign_key "sites", "businesses"
 end
