@@ -22,6 +22,7 @@ class BusinessesController < ApplicationController
     @business = Business.find(params[:id])
     @sites = @business.sites
     @members = @business.members
+    @employees = @business.employees
   end
 
   private

@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   resources :businesses do
     resources :sites
+    resources :employees
   end
 
-  resources :users, only: [:new, :create, :index, :show]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: %i[new create index show]
+  resources :sessions, only: %i[new create destroy]
   delete "/logout", to: "sessions#destroy", as: :logout
 end
