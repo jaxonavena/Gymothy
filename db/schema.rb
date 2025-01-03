@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_02_191614) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_03_173525) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -35,6 +35,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_02_191614) do
     t.datetime "updated_at", null: false
     t.string "status"
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "name"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "business_id", null: false
+    t.index ["business_id"], name: "index_employees_on_business_id"
   end
 
   create_table "members", force: :cascade do |t|
@@ -77,6 +86,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_02_191614) do
   end
 
   add_foreign_key "comments", "articles"
+  add_foreign_key "employees", "businesses"
   add_foreign_key "memberships", "businesses"
   add_foreign_key "memberships", "members"
   add_foreign_key "sites", "businesses"

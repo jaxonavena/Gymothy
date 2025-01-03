@@ -1,0 +1,13 @@
+<nav class="nav-container">
+  <h1>Employees</h1>
+  <%= link_to "Create Employee", new_employee_path, class: "nav-link" %>
+</nav>
+
+<div class="sectioned-display-container">
+    <% @employees.each do |employee| %>
+    <div class="sectioned-display-item">
+        <%= link_to employee.name, employee %>
+    </div>
+    <% end %>
+</div>
+
