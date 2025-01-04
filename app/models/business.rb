@@ -20,4 +20,8 @@ class Business < ApplicationRecord
   has_many :members, through: :memberships
 
   has_many :employees
+
+  validates :name, presence: true
+  validates :owner_name, presence: true
+  validates :owner_phone, presence: true
 end
