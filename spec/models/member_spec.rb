@@ -23,7 +23,6 @@ RSpec.describe Member, type: :model do
 
   describe "validity" do
     it 'is valid' do
-      # This is also testing the case of missing phone number, but having email
       expect(a_member).to be_valid
     end
 
