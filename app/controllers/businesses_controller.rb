@@ -16,7 +16,7 @@ class BusinessesController < ApplicationController
     if @business.save
       redirect_to @business
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: "Unable to create business."
     end
   end
 
@@ -46,6 +46,6 @@ class BusinessesController < ApplicationController
   end
 
   def business_params
-    params.require(:business).permit(:name, :display_schedule)
+    params.require(:business).permit(:name, :owner_name, :owner_phone, :display_schedule)
   end
 end

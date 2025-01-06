@@ -44,9 +44,9 @@
     </div>
   <% end %>
 
-  <div class="sectioned-display-item">
-      <% if @business.display_schedule %>
-      <%= render "schedule" %>
-   <% end %>
-  </div>
+  <% if @business.display_schedule %>
+    <div class="sectioned-display-item">
+        <%= render "schedule" %>
+    </div>
+  <% end %>
 </div>
