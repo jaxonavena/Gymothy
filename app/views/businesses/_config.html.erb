@@ -1,0 +1,16 @@
+<%= form_with model: business do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% business.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <%= form.check_box :display_schedule %>
+  <%= form.label :display_schedule, "Display Schedule" %>
+
+  <div>
+    <%= form.submit "Save Changes" %>
+  </div>
+<% end %>
