@@ -24,4 +24,8 @@ class Business < ApplicationRecord
   validates :name, presence: true
   validates :owner_name, presence: true
   validates :owner_phone, presence: true
+
+  def toggle_schedule_display
+    display_schedule = !display_schedule
+  end
 end
