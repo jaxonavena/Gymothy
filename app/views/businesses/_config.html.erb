@@ -7,10 +7,10 @@
     <% end %>
   </div>
 
-  <h2>Display Schedule?</h2>
-  <%= check_box(:business, :toggle_schedule_display, options = {}, checked_value = true, unchecked_value = false) %>
+  <%= form.check_box :display_schedule %>
+  <%= form.label :display_schedule, "Display Schedule" %>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Save Changes" %>
   </div>
 <% end %>
