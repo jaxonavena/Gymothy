@@ -24,7 +24,7 @@
     <div>Members</div>
     <% @members.each do |member| %>
       <div class="sectioned-display-item">
-        <%= member.name %>
+        <%= link_to member.name, business_member_path(@business, member)%>
       </div>
     <% end %>
   <% else %>
