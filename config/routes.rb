@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :businesses do
     resources :sites
     resources :employees
+    resources :members
   end
 
   resources :users, only: %i[new create index show]
