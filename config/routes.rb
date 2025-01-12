@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   root "businesses#index"
 
-  get "/login_signup_page", to: "login_signup_page#index"
-
   # get "/articles", to: "articles#index"
   # get "/articles/:id", to: "articles#show"
   # The two get routes above and all the other basic CRUD routes get smushed into resources
