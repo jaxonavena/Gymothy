@@ -6,7 +6,7 @@
   <% @events.each do |event| %>
     <%= render event %>
     <p>
-      <%= link_to "Show this event", event %>
+      <%= link_to "Show this event", business_event_path(@business, event) %>
     </p>
   <% end %>
 </div>
@@ -21,4 +21,4 @@
 <% end %>
 
 
-<%= link_to "New event", new_event_path %>
+<%= link_to "New event", new_business_event_path(@business) %>
