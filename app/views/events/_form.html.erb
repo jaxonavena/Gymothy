@@ -18,18 +18,15 @@
 
   <div>
     <%= form.label :start_time, style: "display: block" %>
-    <%= form.datetime_field :start_time %>
+    <%= form.datetime_field :start_time, value: Time.current %>
   </div>
 
   <div>
     <%= form.label :end_time, style: "display: block" %>
-    <%= form.datetime_field :end_time %>
+    <%= form.datetime_field :end_time, value: Time.current + 1.hour %>
   </div>
 
-  <div>
-    <%= form.label :business_id, style: "display: block" %>
-    <%= form.text_field :business_id %>
-  </div>
+  <%= form.hidden_field :business_id, value: params[:business_id] %>
 
   <div>
     <%= form.submit %>
