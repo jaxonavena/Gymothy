@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :sites
     resources :employees
     resources :members
+    resources :events
   end
 
   resources :users, only: %i[new create index show]
