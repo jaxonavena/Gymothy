@@ -11,14 +11,16 @@
   <% end %>
 </div>
 
-<%= month_calendar(events: @events) do |date, events| %>
-  <%= date %>
-  <% events.each do |event| %>
-    <div>
-      <%= event.name %>
-    </div>
+<div class="sectioned-display-item">
+  <%= month_calendar(events: @events) do |date, events| %>
+    <%= date %>
+    <% events.each do |event| %>
+      <div>
+        <%= event.name %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <%= link_to "Back to business", business_path(@business) %> |
 <%= link_to "New event", new_business_event_path(@business) %>
