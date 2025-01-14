@@ -3,8 +3,8 @@
 <%= render @event %>
 
 <div>
-  <%= link_to "Edit this event", edit_business_event_path(@business, @event) %> |
-  <%= link_to "Back to events", business_events_path(@business) %>
-
+  <%= link_to "Back to business", business_path(@business) %> |
+  <%= link_to "All events", business_events_path(@business) %> |
+  <%= link_to "Edit this event", edit_business_event_path(@business, @event) %>
   <%= button_to "Destroy this event", business_event_path(@business, @event), method: :delete %>
 </div>
