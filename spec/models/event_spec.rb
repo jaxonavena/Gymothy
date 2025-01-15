@@ -65,12 +65,24 @@ RSpec.describe Event, type: :model do
         expect(an_event.interests.last.status).to eq("Interested")
       end
 
-      it "can have a custom interest status" do
-        interest = a_member.interests.last
-        interest.status = "Going"
-        interest.save
+      it "can update the interest status" do
+        a_member.update_interest_in_event(an_event, "Going")
         expect(an_event.interests.last.status).to eq("Going")
       end
+
+      it "can reset the interest status" do
+        a_member.update_interest_in_event(an_event, "Going")
+        a_member.reset_interest_in_event(an_event)
+        expect(an_event.interests.last.status).to_not eq("Going")
+        expect(an_event.interests.last.status).to eq("Interested")
+      end
+    end
+
+    xit "can destroy the interest" do
+      expect(an_event.interests.last).to eq(a_member.interests.last)
+      expect { a_member.destroy_interest_in_event(an_event) }.to change { Interest.all.count }.from(1).to(0)
+      expect(an_event.interests).to be_empty
+      expect(a_member.interests).to be_empty
     end
   end
 end

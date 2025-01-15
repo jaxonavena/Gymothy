@@ -30,7 +30,21 @@ class Member < ApplicationRecord
   end
 
   def update_interest_in_event(event, status)
-    interest = Interest.find_by(event_id: event.id, member_id: id)
-    interest.update_column!(status: status)
+    interest = find_event_interest(event)
+    interest.update_column(:status, status)
+  end
+
+  def reset_interest_in_event(event)
+    update_interest_in_event(event, "Interested")
+  end
+
+  def destroy_interest_in_event(event)
+    find_event_interest(event)&.destroy
+  end
+
+  private
+
+  def find_event_interest(event)
+    Interest.find_by(event_id: event.id, member_id: id)
   end
 end
