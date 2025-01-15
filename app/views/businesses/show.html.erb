@@ -33,7 +33,7 @@
     </div>
   <% end %>
 
-  <%= link_to "Add Employee", new_business_employee_path(@business), class: "nav-link" %>
+  <%= link_to "Add Employee", new_business_employee_path(@business) %>
   <% if @employees.any? %>
     <div>Employees</div>
     <% @employees.each do |employee| %>

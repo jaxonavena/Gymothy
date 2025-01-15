@@ -26,7 +26,9 @@ class Member < ApplicationRecord
 
   def set_interest_in_event(event, status = "Interested")
     interested_events << event unless interested_events.include?(event)
-    interests.last.status = status # this is bad
+
+    interest = find_event_interest(event)
+    interest.status = status
   end
 
   def update_interest_in_event(event, status)

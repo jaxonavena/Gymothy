@@ -1,11 +1,16 @@
 <nav class="nav-container">
   <h1><%= @member.name %></h1>
 </nav>
+<%= link_to "Business", business_path(@business) %>
 
 <div>
   <p><%= @member.email %></p>
   <p><%= @member.phone_number %></p>
-  <p><%- @member.interests %></p>
+  <p>
+    Interested in:
+    <% @member.interested_events.each do |event| %>
+      <%= link_to event.name, business_event_path(@business, event) %>
+    <% end %>
+  </p>
 </div>
 
-<%= link_to "Business", business_path(@business), class: "nav-link" %>
