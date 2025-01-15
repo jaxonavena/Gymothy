@@ -13,6 +13,7 @@
 #  status     :string
 #
 class Comment < ApplicationRecord
+  # Part of Rails getting started - is not used in Gymothy
   include Visible
 
   belongs_to :article

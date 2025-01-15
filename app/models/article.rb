@@ -12,6 +12,7 @@
 #  status     :string
 #
 class Article < ApplicationRecord
+  # Part of Rails getting started - is not used in Gymothy
   include Visible
 
   has_many :comments, dependent: :destroy # if an article gets destroyed, so will its comments

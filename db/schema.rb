@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_13_183913) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_15_192913) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -57,6 +57,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_13_183913) do
     t.index ["business_id"], name: "index_events_on_business_id"
   end
 
+  create_table "interests", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status", default: "Interested"
+    t.index ["event_id"], name: "index_interests_on_event_id"
+    t.index ["member_id", "event_id"], name: "index_interests_on_member_id_and_event_id", unique: true
+    t.index ["member_id"], name: "index_interests_on_member_id"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "name"
     t.string "phone_number"
@@ -99,6 +110,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_13_183913) do
   add_foreign_key "comments", "articles"
   add_foreign_key "employees", "businesses"
   add_foreign_key "events", "businesses"
+  add_foreign_key "interests", "events"
+  add_foreign_key "interests", "members"
   add_foreign_key "memberships", "businesses"
   add_foreign_key "memberships", "members"
   add_foreign_key "sites", "businesses"

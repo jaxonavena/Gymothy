@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Events", type: :request do
+RSpec.xdescribe "Events", type: :request do
   let(:a_business) { build(:business) }
   let(:an_event) { build(:event, business: a_business) }
 

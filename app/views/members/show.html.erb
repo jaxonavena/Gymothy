@@ -1,7 +1,11 @@
 <nav class="nav-container">
   <h1><%= @member.name %></h1>
-  <h1><%= @member.email %></h1>
-  <h1><%= @member.phone_number %></h1>
 </nav>
+
+<div>
+  <p><%= @member.email %></p>
+  <p><%= @member.phone_number %></p>
+  <p><%- @member.interests %></p>
+</div>
 
 <%= link_to "Business", business_path(@business), class: "nav-link" %>
