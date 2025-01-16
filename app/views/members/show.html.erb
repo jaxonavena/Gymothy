@@ -9,7 +9,10 @@
   <p>
     Interested in:
     <% @member.interested_events.each do |event| %>
-      <%= link_to event.name, business_event_path(@business, event) %>
+      <div>
+        <%= link_to event.name, business_event_path(@business, event) %>
+        : <%= @member.find_event_interest(event).status %>
+      </div>
     <% end %>
   </p>
 </div>

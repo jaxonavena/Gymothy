@@ -28,7 +28,7 @@ class Member < ApplicationRecord
     interested_events << event unless interested_events.include?(event)
 
     interest = find_event_interest(event)
-    interest.status = status
+    interest&.status = status
   end
 
   def update_interest_in_event(event, status)
@@ -43,8 +43,6 @@ class Member < ApplicationRecord
   def destroy_interest_in_event(event)
     find_event_interest(event)&.destroy
   end
-
-  private
 
   def find_event_interest(event)
     Interest.find_by(event_id: event.id, member_id: id)
