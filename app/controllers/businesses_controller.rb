@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class BusinessesController < ApplicationController
-  before_action :set_business, only: %i[show edit update]
+  before_action :set_business, only: %i[show edit update analytics]
 
   def index
     @businesses = Business.all
@@ -41,6 +41,9 @@ class BusinessesController < ApplicationController
     else
       redirect_to edit_business_path(@business), alert: "Unable to update business."
     end
+  end
+
+  def analytics
   end
 
   private

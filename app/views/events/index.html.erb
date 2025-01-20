@@ -1,13 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Events</h1>
+<nav class="nav-container">
+  <h1>Events</h1>
+</nav>
 
-<div id="events">
+<div id="events" >
   <% @events.each do |event| %>
     <%= render event %>
-    <p>
-      <%= link_to "Show this event", business_event_path(@business, event) %>
-    </p>
+    <%= link_to "Show this event", business_event_path(@business, event) %>
   <% end %>
 </div>
 

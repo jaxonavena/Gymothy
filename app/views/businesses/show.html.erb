@@ -1,5 +1,6 @@
 <nav class="nav-container">
   <h1><%= @business.name %></h1>
+  <h1><%= link_to "Analytics", analytics_business_path(@business), class: "nav-link" %></h1>
   <h1><%= link_to "Edit", edit_business_path(@business), class: "nav-link" %></h1>
 </nav>
   <div>
