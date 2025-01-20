@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class BusinessesController < ApplicationController
-  before_action :set_business, only: %i[show edit update]
+  before_action :set_business, only: %i[show edit update analytics]
 
   def index
     @businesses = Business.all
@@ -24,6 +24,10 @@ class BusinessesController < ApplicationController
     @sites = @business.sites
     @members = @business.members
     @employees = @business.employees
+
+    # Fetch this business's events for the calendar view
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @events = @business.events.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def edit
@@ -37,6 +41,9 @@ class BusinessesController < ApplicationController
     else
       redirect_to edit_business_path(@business), alert: "Unable to update business."
     end
+  end
+
+  def analytics
   end
 
   private

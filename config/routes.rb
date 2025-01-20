@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   end
 
   resources :businesses do
+    get "analytics", on: :member
     resources :sites
     resources :employees
     resources :members
+    resources :events
   end
 
   resources :users, only: %i[new create index show]
