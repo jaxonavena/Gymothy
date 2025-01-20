@@ -1,0 +1,12 @@
+<nav class="nav-container">
+  <h1>New event</h1>
+</nav>
+
+<%= render "form", event: @event %>
+
+<br>
+
+<div>
+  <%= link_to "Back to business", business_path(@business) %> |
+  <%= link_to "All events", business_events_path(@business) %>
+</div>

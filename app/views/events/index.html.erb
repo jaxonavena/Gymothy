@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<nav class="nav-container">
+  <h1>Events</h1>
+</nav>
+
+<div id="events" >
+  <% @events.each do |event| %>
+    <%= render event %>
+    <%= link_to "Show this event", business_event_path(@business, event) %>
+  <% end %>
+</div>
+
+<div class="sectioned-display-item">
+  <%= month_calendar(events: @events) do |date, events| %>
+    <%= date %>
+    <% events.each do |event| %>
+      <div>
+        <%= event.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "Back to business", business_path(@business) %> |
+<%= link_to "New event", new_business_event_path(@business) %>
