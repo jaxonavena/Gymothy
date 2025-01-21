@@ -23,6 +23,10 @@ gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
 # Add calendar functionality
 gem "simple_calendar"
+# Integrate Stripe payment processing
+gem 'stripe'
+# ENV
+gem "dotenv", require: "dotenv/load"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
