@@ -56,7 +56,7 @@ RSpec.describe Business, type: :model do
     end
   end
 
-  xdescribe "members" do
+  describe "members" do
     let(:a_member) { create(:member) }
     let(:a_membership) { create(:membership, member: a_member, business: a_business) }
 
@@ -64,13 +64,12 @@ RSpec.describe Business, type: :model do
     let(:another_membership) { create(:membership, member: another_member, business: a_business) }
 
     before do
-      a_member.save!
       a_membership.save!
-      another_member.save!
       another_membership.save!
     end
 
     it "can have no members" do
+      expect(a_business.members.size).to eq(2)
       a_business.members.destroy_all
       expect(a_business.members.size).to eq(0)
       expect(a_business).to be_valid

@@ -17,7 +17,7 @@ class Business < ApplicationRecord
   has_many :sites, dependent: :destroy
 
   has_many :memberships, dependent: :destroy
-  has_many :members, through: :memberships
+  has_many :members, through: :memberships, source: :member
 
   has_many :events, dependent: :destroy
 

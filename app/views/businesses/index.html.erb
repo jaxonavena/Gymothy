@@ -5,7 +5,7 @@
 
 <div class="sectioned-display-container">
     <% @businesses.each do |business| %>
-    <div class="sectioned-display-item">
+    <div class="sectioned-display-item link_to">
         <%= link_to business.name, business %>
     </div>
     <% end %>
