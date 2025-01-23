@@ -57,7 +57,7 @@
  }
 
  .sectioned-display-item {
-  flex: 1 1 calc(33% - 2vh); /* supposed to be 3 items per row with spacing, but it's doing 2*/
+  flex: 1 1 calc(33% - 2vh);  /* supposed to be 3 items per row with spacing, but it's doing 2 */
   margin: 1vh;
   background-color: white;
   border: 1px solid #ccc;
