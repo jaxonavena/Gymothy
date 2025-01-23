@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  # STRIPE
+  post 'checkout/create', to: 'checkouts#create'
+  get 'checkout/success', to: 'checkouts#success'
+  get 'checkout/cancel', to: 'checkouts#cancel'
+  # Stripe webhooks
+  post '/webhooks/stripe', to: 'webhooks#stripe'
+
   resources :businesses do
     get "analytics", on: :member
     resources :sites
