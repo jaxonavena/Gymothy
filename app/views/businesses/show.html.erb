@@ -1,50 +1,42 @@
 <nav class="page-specific">
   <h1><%= @business.name %></h1>
-  <h2><%= link_to "Analytics", analytics_business_path(@business), class: "nav-link" %></h2>
-  <h2><%= link_to "Edit", edit_business_path(@business), class: "nav-link" %></h2>
-  <div><%= link_to "All Businesses", businesses_path %></div>
+  <div><%= link_to "Analytics", analytics_business_path(@business), class: "nav-link" %></div>
+  <div><%= link_to "Edit", edit_business_path(@business), class: "nav-link" %></div>
+  <div><%= link_to "All Businesses", businesses_path, class: "nav-link" %></div>
 </nav>
 
 <body>
-  <div class="sectioned-display-container">
+  <div>
     <% if @sites.any? %>
-      <div>Sites</div>
+      Sites
       <% @sites.each do |site| %>
-        <div class="sectioned-display-item">
         <%= link_to site.name, business_site_path(site)%>
-        </div>
       <% end %>
     <% else %>
-      <div class="sectioned-display-item">
-        This Business Has No Sites
-      </div>
+      This Business Has No Sites
     <% end %>
+  </div>
 
+  <div>
     <% if @members.any? %>
-      <div>Members</div>
+      Members
       <% @members.each do |member| %>
-        <div class="sectioned-display-item">
-          <%= link_to member.name, business_member_path(@business, member)%>
-        </div>
+        <%= link_to member.name, business_member_path(@business, member)%>
       <% end %>
     <% else %>
-      <div class="sectioned-display-item">
-        This Business Has No Members
-      </div>
+      This Business Has No Members
     <% end %>
+  </div>
 
+  <div>
     <%= link_to "Add Employee", new_business_employee_path(@business) %>
     <% if @employees.any? %>
-      <div>Employees</div>
+      Employees
       <% @employees.each do |employee| %>
-        <div class="sectioned-display-item">
-          <%= link_to "#{employee.name} - #{employee.role}", business_employee_path(@business, employee)%>
-        </div>
+        <%= link_to "#{employee.name} - #{employee.role}", business_employee_path(@business, employee)%>
       <% end %>
     <% else %>
-      <div class="sectioned-display-item">
-        This Business Has No Employees
-      </div>
+      This Business Has No Employees
     <% end %>
 
     <%= render "partials/calendar" if @business.display_schedule %>

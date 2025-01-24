@@ -1,8 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
-<nav class="nav-container">
+<nav class="page-specific">
   <h1>Events</h1>
 </nav>
+
+<p style="color: green"><%= notice %></p>
 
 <div id="events" >
   <% @events.each do |event| %>
@@ -13,5 +13,4 @@
 
 <%= render "partials/calendar" %>
 
-<%= link_to "Back to business", business_path(@business) %> |
-<%= link_to "New event", new_business_event_path(@business) %>
+<%= link_to "Back to business", business_path(@business) %>

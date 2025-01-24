@@ -1,11 +1,11 @@
-<nav class="nav-container">
+<nav class="page-specific">
   <h1>Businesses</h1>
-  <%= link_to "Create Business", new_business_path, class: "nav-link" %>
+  <div> <%= link_to "Create Business", new_business_path, class: "nav-link" %> </div>
 </nav>
 
-<div class="sectioned-display-container">
+<div>
     <% @businesses.each do |business| %>
-    <div class="sectioned-display-item">
+    <div>
         <%= link_to business.name, business %>
     </div>
     <% end %>
