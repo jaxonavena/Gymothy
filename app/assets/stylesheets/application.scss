@@ -15,27 +15,10 @@
  */
 
 @import 'base/reset.css';
+@import 'components/nav.css';
+@import 'components/calendar.css';
+
 @import "simple_calendar";
-
-//  nav{
-//   background-color:rgb(46, 79, 128);
-//  }
-
-//  .nav-container {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 1vh;
-// }
-
-// .nav-container h1 {
-//   margin: 0;
-// }
-
-// .nav-link {
-//   margin-left: auto; /* This ensures the link is pushed to the far right */
-//   color: white;
-// }
 
 //  h1{
 //    color:white;
@@ -44,11 +27,6 @@
 
 //  ul{
 //    background-color: rgb(163, 192, 211);
-//  }
-
-//  body{
-//     background-color:rgb(236, 236, 236);
-//     font-family:Arial, Helvetica, sans-serif;
 //  }
 
 //  .sectioned-display-container{

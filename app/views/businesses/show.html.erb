@@ -1,56 +1,52 @@
-<nav class="nav-container">
+<nav class="page-specific">
   <h1><%= @business.name %></h1>
-  <h1><%= link_to "Analytics", analytics_business_path(@business), class: "nav-link" %></h1>
-  <h1><%= link_to "Edit", edit_business_path(@business), class: "nav-link" %></h1>
+  <h2><%= link_to "Analytics", analytics_business_path(@business), class: "nav-link" %></h2>
+  <h2><%= link_to "Edit", edit_business_path(@business), class: "nav-link" %></h2>
+  <div><%= link_to "All Businesses", businesses_path %></div>
 </nav>
-  <div>
-    <%= link_to "All Businesses", businesses_path %>
+
+<body>
+  <div class="sectioned-display-container">
+    <% if @sites.any? %>
+      <div>Sites</div>
+      <% @sites.each do |site| %>
+        <div class="sectioned-display-item">
+        <%= link_to site.name, business_site_path(site)%>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="sectioned-display-item">
+        This Business Has No Sites
+      </div>
+    <% end %>
+
+    <% if @members.any? %>
+      <div>Members</div>
+      <% @members.each do |member| %>
+        <div class="sectioned-display-item">
+          <%= link_to member.name, business_member_path(@business, member)%>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="sectioned-display-item">
+        This Business Has No Members
+      </div>
+    <% end %>
+
+    <%= link_to "Add Employee", new_business_employee_path(@business) %>
+    <% if @employees.any? %>
+      <div>Employees</div>
+      <% @employees.each do |employee| %>
+        <div class="sectioned-display-item">
+          <%= link_to "#{employee.name} - #{employee.role}", business_employee_path(@business, employee)%>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="sectioned-display-item">
+        This Business Has No Employees
+      </div>
+    <% end %>
+
+    <%= render "partials/calendar" if @business.display_schedule %>
   </div>
-
-<div class="sectioned-display-container">
-  <% if @sites.any? %>
-    <div>Sites</div>
-    <% @sites.each do |site| %>
-      <div class="sectioned-display-item">
-      <%= link_to site.name, business_site_path(site)%>
-      </div>
-    <% end %>
-  <% else %>
-    <div class="sectioned-display-item">
-      This Business Has No Sites
-    </div>
-  <% end %>
-
-  <% if @members.any? %>
-    <div>Members</div>
-    <% @members.each do |member| %>
-      <div class="sectioned-display-item">
-        <%= link_to member.name, business_member_path(@business, member)%>
-      </div>
-    <% end %>
-  <% else %>
-    <div class="sectioned-display-item">
-      This Business Has No Members
-    </div>
-  <% end %>
-
-  <%= link_to "Add Employee", new_business_employee_path(@business) %>
-  <% if @employees.any? %>
-    <div>Employees</div>
-    <% @employees.each do |employee| %>
-      <div class="sectioned-display-item">
-        <%= link_to "#{employee.name} - #{employee.role}", business_employee_path(@business, employee)%>
-      </div>
-    <% end %>
-  <% else %>
-    <div class="sectioned-display-item">
-      This Business Has No Employees
-    </div>
-  <% end %>
-
-  <% if @business.display_schedule %>
-    <div class="sectioned-display-item">
-        <%= render "schedule" %>
-    </div>
-  <% end %>
-</div>
+</body>
