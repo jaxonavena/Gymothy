@@ -11,12 +11,11 @@ nav {
   z-index: 1;
 }
 
-.page-specific {
+nav.page-specific {
   position: relative;
   top: 18px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 20px; /* Adds spacing between items */
   padding: 10px 20px;
   margin: 0 0 20px 0;
@@ -26,10 +25,10 @@ nav {
   color: white;
   font-weight: bold;
   transition: color 0.2s ease;
-  padding: 2px;
+  padding: 14px 16px;
 }
 
-.nav-link:hover {
+.nav-link:hover, .navbar a:hover, .dropdown:hover .dropbtn {
   color: #09445f;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 5px;
