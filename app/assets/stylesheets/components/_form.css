@@ -1,0 +1,8 @@
+/* put this inside a .container to center */
+.form {
+  background-color:rgb(205, 211, 214);
+  padding: 20px;
+  display: inline-block;
+  border: 3px solid var(--main-color);
+  box-shadow: var(--main-box-shadow);
+}

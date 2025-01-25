@@ -1,5 +1,5 @@
 nav {
-  background-color:rgb(46, 79, 128);
+  background-color: var(--main-color);
   color: white;
 }
 
