@@ -3,9 +3,9 @@
   <div> <%= link_to "Create Business", new_business_path, class: "nav-link" %> </div>
 </nav>
 
-<div>
+<div class="container">
     <% @businesses.each do |business| %>
-    <div>
+    <div class="card">
         <%= link_to business.name, business %>
     </div>
     <% end %>

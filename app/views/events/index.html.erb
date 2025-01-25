@@ -1,16 +1,17 @@
 <nav class="page-specific">
   <h1>Events</h1>
+  <%= link_to "Back to business", business_path(@business), class: "nav-link" %>
 </nav>
 
 <p style="color: green"><%= notice %></p>
 
-<div id="events" >
+<div class="container" >
   <% @events.each do |event| %>
-    <%= render event %>
-    <%= link_to "Show this event", business_event_path(@business, event) %>
+    <div class="card">
+      <%= render event %>
+      <%= link_to "Show this event", business_event_path(@business, event) %>
+    </div>
   <% end %>
 </div>
 
 <%= render "partials/calendar" %>
-
-<%= link_to "Back to business", business_path(@business) %>

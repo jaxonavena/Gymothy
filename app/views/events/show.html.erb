@@ -1,14 +1,15 @@
-<p style="color: green"><%= notice %></p>
-
 <nav class="page-specific">
   <h1> Event <%= @event.id %> </h1>
+  <%= link_to "Back to business", business_path(@business), class: "nav-link" %>
+  <%= link_to "All events", business_events_path(@business), class: "nav-link" %>
 </nav>
 
-<%= render @event %>
+<p style="color: green"><%= notice %></p>
 
-<div>
-  <%= link_to "Back to business", business_path(@business) %> |
-  <%= link_to "All events", business_events_path(@business) %> |
-  <%= link_to "Edit this event", edit_business_event_path(@business, @event) %>
-  <%= button_to "Destroy this event", business_event_path(@business, @event), method: :delete %>
+<div class="container" >
+  <div class="card">
+    <%= render @event %>
+    <%= link_to "Edit this event", edit_business_event_path(@business, @event) %>
+    <%= button_to "Destroy this event", business_event_path(@business, @event), method: :delete %>
+  </div>
 </div>

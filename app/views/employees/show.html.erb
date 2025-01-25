@@ -1,6 +1,5 @@
 <nav class="page-specific">
-  <h1><%= @employee.name %></h1>
+  <h1><%= @employee.name %></h1> -
   <h1><%= @employee.role %></h1>
+  <%= link_to "Back to Business", business_path(@employee.business), class: "nav-link" %>
 </nav>
-
-<%= link_to "Business", business_path(@employee.business) %>

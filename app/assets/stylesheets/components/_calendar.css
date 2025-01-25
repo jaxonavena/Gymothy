@@ -3,3 +3,7 @@
   max-width: 95%;
   margin: 0 auto;
 }
+
+.calendar a:hover {
+  color: rgb(81, 161, 231);
+}
