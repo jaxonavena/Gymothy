@@ -10,10 +10,12 @@
     <p>Site ID: <%= @site.id %></p>
   </div>
 
-  <div class="card">
-    Visitors
-    <% @visitors.each do |member| %>
-      <div><%= link_to member.name, business_member_path(@site.business, member) %></div>
-    <% end %>
-  </div>
+  <% if @visitors.any? %>
+    <div class="card">
+      Visitors
+      <% @visitors.each do |member| %>
+        <div><%= link_to member.name, business_member_path(@site.business, member) %></div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

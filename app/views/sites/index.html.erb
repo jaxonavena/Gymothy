@@ -1,11 +1,14 @@
-<h1>Sites</h1>
+<nav class="page-specific">
+  <h1>Sites</h1>
+  <%= link_to "Back to Business", business_path(@business), class: "nav-link" %>
+</nav>
 
-<ul>
+<div class="container" >
   <% @sites.each do |site| %>
-  <li>
-    <%= link_to site.name, site %>
-  </li>
-  <%end%>
-</ul>
+    <div class="card">
+        <%= link_to site.name, business_site_path(@business, site) %>
+    </div>
+  <% end %>
+</div>
 
-<%= link_to "New Site", new_site_path %>
+<%= link_to "New Site", new_business_site_path(@business) %>

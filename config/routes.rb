@@ -20,10 +20,11 @@ Rails.application.routes.draw do
   post '/webhooks/stripe', to: 'webhooks#stripe'
 
   resources :businesses do
-    get "analytics", on: :member
+    get "analytics", on: :member # not referring to Member model, referring to business instance
     resources :sites
     resources :employees
     resources :members
+    resources :memberships
     resources :events
   end
 

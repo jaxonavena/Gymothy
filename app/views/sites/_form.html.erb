@@ -1,10 +1,49 @@
-<%= form_with model: site do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </div>
+<div class="container">
+  <div class="card">
+    <%= form_with(model: [@business, @site]) do |form| %>
+      <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+        <% @site.errors.full_messages_for(:name).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
 
-   <div>
-    <%= form.submit %>
+      <div>
+        <%= form.label :phone %><br>
+        <%= form.text_field :phone %>
+        <% @site.errors.full_messages_for(:phone).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.label :address %><br>
+        <%= form.text_field :address %>
+        <% @site.errors.full_messages_for(:address).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.label :latitude %><br>
+        <%= form.text_field :latitude %>
+        <% @site.errors.full_messages_for(:latitude).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.label :longitude %><br>
+        <%= form.text_field :longitude %>
+        <% @site.errors.full_messages_for(:longitude).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

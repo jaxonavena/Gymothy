@@ -17,10 +17,10 @@ class SitesController < ApplicationController
   end
 
   def create
-    @site = @business.site.new(site_params)
+    @site = @business.sites.new(site_params)
 
     if @site.save
-      redirect_to @site
+      redirect_to business_site_path(@business, @site)
     else
       render :new, status: :unprocessable_entity
     end

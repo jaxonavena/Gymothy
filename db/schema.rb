@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_26_185005) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_26_224035) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -83,6 +83,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_26_185005) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["business_id"], name: "index_memberships_on_business_id"
+    t.index ["member_id", "business_id"], name: "index_memberships_on_member_id_and_business_id", unique: true
     t.index ["member_id"], name: "index_memberships_on_member_id"
   end
 
