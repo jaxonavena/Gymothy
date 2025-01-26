@@ -1,3 +1,8 @@
-<h1>New Employee</h1>
+<nav class="page-specific">
+  <h1>New Employee</h1>
+  <%= link_to "Back to Business", business_path(@business), class: "nav-link" %>
+</nav>
 
-<%= render "form", employee: @employee %>
+<body>
+  <%= render "form", employee: @employee %>
+</body>

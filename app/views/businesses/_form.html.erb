@@ -1,39 +1,43 @@
-<%= form_with model: business do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% business.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
+<div class="container">
+  <div class="form">
+    <%= form_with model: business do |form| %>
+      <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+        <% business.errors.full_messages_for(:name).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.label :owner_name %><br>
+        <%= form.text_field :owner_name %>
+        <% business.errors.full_messages_for(:owner_name).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form.label :owner_phone %><br>
+        <%= form.text_field :owner_phone %>
+        <% business.errors.full_messages_for(:owner_phone).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+    <!--
+      <div>
+        <%= form.label :body %><br>
+        <%= form.text_area :body %><br>
+        <% business.errors.full_messages_for(:body).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    -->
+
+      <div>
+        <%= form.submit %>
+      </div>
     <% end %>
   </div>
-
-  <div>
-    <%= form.label :owner_name %><br>
-    <%= form.text_field :owner_name %>
-    <% business.errors.full_messages_for(:owner_name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :owner_phone %><br>
-    <%= form.text_field :owner_phone %>
-    <% business.errors.full_messages_for(:owner_phone).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-<!--
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-    <% business.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
--->
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

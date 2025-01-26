@@ -1,8 +1,11 @@
-<nav class="nav-container">
+<nav class="page-specific">
   <h1><%= @site.name %></h1>
 </nav>
 
-<% business = Business.find(@site.business_id)%>
-<p>Business: <%= link_to business.name, business %></p>
-<p>Site ID: <%= @site.id %></p>
-
+<div class="container">
+  <div class="card">
+    <% business = Business.find(@site.business_id)%>
+    <p>Business: <%= link_to business.name, business %></p>
+    <p>Site ID: <%= @site.id %></p>
+  </div>
+</div>

@@ -1,1 +1,39 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'base/reset.css';
+@import 'components/nav.css';
+@import 'components/calendar.css';
 @import "simple_calendar";
+@import 'components/dropdown.css';
+
+//  .sectioned-display-container{
+//    display: flex;
+//    flex-direction: row;
+//    flex-wrap: wrap;
+//    justify-content: space-around;
+//    align-items: center;
+//  }
+
+//  .sectioned-display-item {
+//   flex: 1 1 calc(33% - 2vh); /* supposed to be 3 items per row with spacing, but it's doing 2*/
+//   margin: 1vh;
+//   background-color: white;
+//   border: 1px solid #ccc;
+//   padding: 1vh;
+//   text-align: center;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+// }

@@ -1,19 +1,21 @@
-<nav class="nav-container">
+<nav class="page-specific">
   <h1><%= @member.name %></h1>
+  <%= link_to "Back to Business", business_path(@business), class: "nav-link" %>
 </nav>
-<%= link_to "Business", business_path(@business) %>
 
-<div>
-  <p><%= @member.email %></p>
-  <p><%= @member.phone_number %></p>
-  <p>
-    Interested in:
-    <% @member.interested_events.each do |event| %>
-      <div>
-        <%= link_to event.name, business_event_path(@business, event) %>
-        : <%= @member.find_event_interest(event).status %>
-      </div>
-    <% end %>
-  </p>
+<div class="container">
+  <div class="card">
+    <p><%= @member.email %></p>
+    <p><%= @member.phone_number %></p>
+    <p>
+      Interested in:
+      <% @member.interested_events.each do |event| %>
+        <div>
+          <%= link_to event.name, business_event_path(@business, event) %>
+          : <%= @member.find_event_interest(event).status %>
+        </div>
+      <% end %>
+    </p>
+  </div>
 </div>
 

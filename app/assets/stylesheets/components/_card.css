@@ -1,0 +1,12 @@
+.card {
+  background-color:rgb(205, 211, 214);
+  padding: 20px;
+  display: inline-block;
+  border: 3px solid var(--main-color);
+  box-shadow: var(--main-box-shadow);
+  margin: 10px auto;
+}
+
+.card a:hover {
+  color: white;
+}
