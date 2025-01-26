@@ -7,6 +7,7 @@ class MembersController < ApplicationController
   end
 
   def show
+    @memberships = Membership.where(member_id: @member)
   end
 
   # def new

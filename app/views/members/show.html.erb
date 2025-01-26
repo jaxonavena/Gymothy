@@ -5,6 +5,7 @@
 
 <div class="container">
   <div class="card">
+    Info:
     <p><%= @member.email %></p>
     <p><%= @member.phone_number %></p>
     <p>
@@ -16,6 +17,16 @@
         </div>
       <% end %>
     </p>
+  </div>
+
+  <div class="card">
+    Memberships:
+    <% @memberships.each do |membership| %>
+      <div>
+        <%= link_to membership.business.name, business_path(membership.business)%>:
+        <%= membership.status.upcase %>
+      </div>
+    <% end %>
   </div>
 </div>
 
