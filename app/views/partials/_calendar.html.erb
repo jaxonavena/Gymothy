@@ -1,0 +1,15 @@
+<div class="calendar">
+  <%= month_calendar(events: @events) do |date, events| %>
+    <% date_display = date.month == @today.month ? date.strftime("%-d") : date.strftime("%b %-d") %>
+    <%= date_display %>
+    <% events.each do |event| %>
+      <div>
+        <%= event.name %>
+      </div>
+    <% end %>
+  <% end %>
+
+
+  <%= link_to "All events", business_events_path(@business) %> |
+  <%= link_to "New event", new_business_event_path(@business) %>
+</div>
