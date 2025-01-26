@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <button class="dropbtn nav-link"><%= title %></button>
+  <div class = "dropdown-content">
+    <% if model.any? %>
+      <% model.each do |m| %>
+        <%= link_to m.name, path_.call(m&.business, m)%>
+      <% end %>
+    <% else %>
+      <div class="dropdown-empty-message" ><%= message %></div>
+    <% end %>
+  </div>
+</div>
