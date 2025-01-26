@@ -1,7 +1,7 @@
 <nav class="page-specific">
   <h1><%= @business.name %></h1>
 
-  <%= render "partials/nav_dropdown", locals: {
+  <%= render partial: "partials/nav_dropdown", locals: {
                                         title: "Sites",
                                         path_: -> (business, model) { business_site_path(business, model) },
                                         model: @sites,
