@@ -19,8 +19,9 @@ class Site < ApplicationRecord
   include AccessibleByUser
 
   belongs_to :business
-  # has_many :visits
-  # has_many :members, through: :visits
+
+  has_many :visits
+  has_many :members, through: :visits
 
   validates :latitude, presence: true
   validates :longitude, presence: true

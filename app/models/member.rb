@@ -15,8 +15,10 @@
 class Member < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :businesses, through: :memberships, source: :business
-  # has_many :visits
-  # has_many :sites, through: :visits
+
+  has_many :visits
+  has_many :sites, through: :visits
+
   has_many :interests
   has_many :interested_events, through: :interests, source: :event
 
@@ -46,5 +48,11 @@ class Member < ApplicationRecord
 
   def find_event_interest(event)
     Interest.find_by(event_id: event.id, member_id: id)
+  end
+
+  def visit(site)
+    visit = Visit.find_or_create_by!(member: self, site: site)
+    visit.count += 1
+    visit.save
   end
 end

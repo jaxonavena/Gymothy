@@ -9,7 +9,7 @@ class SitesController < ApplicationController
   end
 
   def show
-    @site
+    @visitors = @site.members
   end
 
   def new

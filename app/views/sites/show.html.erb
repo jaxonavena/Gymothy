@@ -1,5 +1,6 @@
 <nav class="page-specific">
   <h1><%= @site.name %></h1>
+  <%= link_to "Back to Business", business_path(@site.business), class: "nav-link" %>
 </nav>
 
 <div class="container">
@@ -7,5 +8,12 @@
     <% business = Business.find(@site.business_id)%>
     <p>Business: <%= link_to business.name, business %></p>
     <p>Site ID: <%= @site.id %></p>
+  </div>
+
+  <div class="card">
+    Visitors
+    <% @visitors.each do |member| %>
+      <div><%= link_to member.name, business_member_path(@site.business, member) %></div>
+    <% end %>
   </div>
 </div>
