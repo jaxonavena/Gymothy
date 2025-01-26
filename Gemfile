@@ -28,6 +28,8 @@ gem "simple_calendar"
 gem 'stripe'
 # ENV
 gem "dotenv", require: "dotenv/load"
+# User auth
+gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

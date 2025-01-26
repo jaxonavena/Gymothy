@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'rspec/rails' # must be before spec_helper
 require 'spec_helper'
-require 'rspec/rails'
 require 'factory_bot_rails'
 require 'support/factory_bot'
 
