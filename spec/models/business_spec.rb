@@ -56,7 +56,7 @@ RSpec.describe Business, type: :model do
     end
   end
 
-  xdescribe "members" do
+  describe "members" do
     let(:a_member) { create(:member) }
     let(:a_membership) { create(:membership, member: a_member, business: a_business) }
 
@@ -77,6 +77,7 @@ RSpec.describe Business, type: :model do
     end
 
     it "can have 1 member" do
+      a_business.members.last.destroy
       expect(a_business.members.size).to eq(1)
       expect(a_business).to be_valid
     end
