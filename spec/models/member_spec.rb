@@ -48,4 +48,22 @@ RSpec.describe Member, type: :model do
       end
     end
   end
+
+  describe "visiting sites" do
+    it "can visit a site" do
+    end
+
+    it "tracks the number of visits made to the site" do
+    end
+  end
+
+  describe "memberships" do
+    it "can create a membership at a business" do
+    end
+  end
+
+  describe "events" do
+    it "can be interested in an event" do
+    end
+  end
 end
