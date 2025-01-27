@@ -28,5 +28,16 @@
       </div>
     <% end %>
   </div>
+
+  <div class="card">
+    Visited Sites:
+    <% @visits.each do |visit| %>
+      <div>
+        <%= link_to  "#{visit.site.name}", business_site_visit_path(@business, visit.site, visit)%>
+        <% s = visit.count == 1 ? "" : "s" %>
+        <%= "#{visit.count} time#{s}" %>
+      </div>
+    <% end %>
+  </div>
 </div>
 

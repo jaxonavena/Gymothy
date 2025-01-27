@@ -1,0 +1,8 @@
+<nav class="page-specific">
+  <h1>New Visit</h1>
+  <%= link_to "Back to Business", business_path(@site.business), class: "nav-link" %>
+</nav>
+
+<body>
+  <%= render "form", visit: @visit %>
+</body>

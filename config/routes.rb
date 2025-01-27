@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   resources :businesses do
     get "analytics", on: :member # not referring to Member model, referring to business instance
-    resources :sites
+    resources :sites do
+      resources :visits
+    end
     resources :employees
     resources :members
     resources :memberships

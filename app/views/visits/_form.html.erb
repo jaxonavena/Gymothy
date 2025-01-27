@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="card">
+    <%= form_with(model: [@site.business, @site, @visit]) do |form| %>
+      <%= form.hidden_field :site_id, value: params[:site_id] %>
+
+      <div>
+        <%= form.label :member_id, "New Visitor:" %>
+        <%= form.collection_select :member_id,
+        Member.where.not(id: Visit.where(site_id: @site.id).select(:member_id)),
+          :id, # id is the real value
+          :name, # name is the display value
+          prompt: "Choose a member" %>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>

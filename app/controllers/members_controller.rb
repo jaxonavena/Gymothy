@@ -8,6 +8,7 @@ class MembersController < ApplicationController
 
   def show
     @memberships = Membership.where(member_id: @member)
+    @visits = Visit.where(member_id: @member)
   end
 
   # def new

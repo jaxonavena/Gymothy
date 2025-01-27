@@ -1,0 +1,17 @@
+<nav class="page-specific">
+  <h1><%= "Visit" %></h1>
+  <%= link_to "Back to Business", business_path(@site.business), class: "nav-link" %>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <% business = @site.business%>
+    <p>Business: <%= link_to business.name, business %></p>
+    <p>Site: <%= @site.name %></p>
+    <p>Member: <%= @visit.member.name %></p>
+    <p>Count: <%= @visit.count %></p>
+    <%= button_to "Destroy",
+        business_site_visit_path(business, @site, @visit),
+        method: :delete, class: "delete_btn" %>
+  </div>
+</div>
