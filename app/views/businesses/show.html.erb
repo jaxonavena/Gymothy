@@ -3,26 +3,26 @@
 
   <%= render partial: "partials/nav_dropdown", locals: {
                                         title: "Sites",
-                                        path_: -> (business, model) { business_site_path(business, model) },
+                                        path_: -> (model) { business_site_path(@business, model) },
                                         model: @sites,
                                         message: "This Business Has No Sites",
-                                        form_path: -> (business) { new_business_site_path(business) },
+                                        form_path: -> () { new_business_site_path(@business) },
                                         } %>
 
   <%= render partial: "partials/nav_dropdown", locals: {
                                         title: "Members",
-                                        path_: -> (business, model) { business_member_path(business, model) },
+                                        path_: -> (model) { business_member_path(@business, model) },
                                         model: @members,
                                         message: "This Business Has No Members",
-                                        form_path: -> (business) { new_business_membership_path(business) },
+                                        form_path: -> () { new_business_membership_path(@business) },
                                         } %>
 
   <%= render partial: "partials/nav_dropdown", locals: {
                                         title: "Employees",
-                                        path_: -> (business, model) { business_employee_path(business, model) },
+                                        path_: -> (model) { business_employee_path(@business, model) },
                                         model: @employees,
                                         message: "This Business Has No Employees",
-                                        form_path: -> (business) { new_business_employee_path(business) },
+                                        form_path: -> () { new_business_employee_path(@business) },
                                         } %>
 
   <%= link_to "Analytics", analytics_business_path(@business), class: "nav-link" %>

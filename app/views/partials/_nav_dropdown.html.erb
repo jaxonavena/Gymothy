@@ -1,14 +1,13 @@
 <div class="dropdown">
   <button class="dropbtn nav-link"><%= title %></button>
   <div class = "dropdown-content">
-    <% business = @sites&.first&.business %>
     <% if form_path %>
-     <%= link_to "Add #{title.chop}", form_path.call(business), class: "dropdown-special"  %>
+     <%= link_to "Add #{title.chop}", form_path.call(), class: "dropdown-special"  %>
     <% end %>
 
     <% if model.any? %>
       <% model.each do |m| %>
-        <%= link_to m.name, path_.call(business, m)%>
+        <%= link_to m.name, path_.call(m)%>
       <% end %>
     <% else %>
       <div class="dropdown-empty-message" ><%= message %></div>
