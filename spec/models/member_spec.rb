@@ -107,6 +107,13 @@ RSpec.describe Member, type: :model do
         expect(an_event.interested_members.include?(a_member)).to eq(true)
         expect(a_member.interested_events.include?(an_event)).to eq(true)
       end
+
+      it "can update the interest status for an event" do
+        expect(an_interest.status).to eq("Interested")
+        a_member.update_interest_in_event(an_event, "Going")
+        an_interest.reload
+        expect(an_interest.status).to eq("Going")
+      end
     end
   end
 end
