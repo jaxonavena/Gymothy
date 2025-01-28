@@ -54,18 +54,24 @@ RSpec.describe Member, type: :model do
   describe "visiting sites" do
     let(:a_site) { build(:site, business: a_business) }
 
+    before do
+      a_site.save!
+    end
+
     it "can visit a site" do
       expect(a_site.members.include?(a_member)).to eq(false)
       a_member.visit(a_site)
       expect(a_site.members.include?(a_member)).to eq(true)
     end
 
-    xit "tracks the number of visits made to the site" do
+    it "tracks the number of visits made to the site" do
       a_member.visit(a_site)
-      visit = Visit.find_by(member_id: a_member, site_id: a_site)
-      expect(visit.count).to eq(1)
+      a_visit = Visit.find_by(member_id: a_member, site_id: a_site)
+      expect(a_visit.count).to eq(1)
+
       a_member.visit(a_site)
-      expect(visit.count).to eq(2)
+      a_visit.reload
+      expect(a_visit.count).to eq(2)
     end
   end
 

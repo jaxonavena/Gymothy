@@ -53,6 +53,6 @@ class Member < ApplicationRecord
   def visit(site)
     visit = Visit.find_or_create_by!(member: self, site: site)
     visit.count += 1
-    visit.save
+    visit.save!
   end
 end

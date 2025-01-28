@@ -7,8 +7,8 @@
   <div class="card">
     <% business = @site.business%>
     <p>Business: <%= link_to business.name, business %></p>
-    <p>Site: <%= @site.name %></p>
-    <p>Member: <%= @visit.member.name %></p>
+    <p>Site: <%= link_to @site.name, business_site_path(@site.business, @site) %></p>
+    <p>Member: <%= link_to @visit.member.name, business_member_path(@site.business, @visit.member) %></p>
     <p>Count: <%= @visit.count %></p>
     <%= button_to "Destroy",
         business_site_visit_path(business, @site, @visit),
