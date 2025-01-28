@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 class SitesController < ApplicationController
-  before_action :set_site, only: %i[show]
-  before_action :set_business, only: %i[new create index]
+  before_action :set_site, only: %i[show destroy]
+  before_action :set_business
 
   def index
     @sites = @business.sites
   end
 
   def show
-    @site
+    @visitors = @site.members
   end
 
   def new
@@ -17,12 +17,20 @@ class SitesController < ApplicationController
   end
 
   def create
-    @site = @business.site.new(site_params)
+    @site = @business.sites.new(site_params)
 
     if @site.save
-      redirect_to @site
+      redirect_to business_site_path(@business, @site)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @site.destroy
+      redirect_to business_path(@business), notice: 'Site was successfully deleted.'
+    else
+      redirect_to business_site_path(@business, @site), alert: 'Failed to delete the site.'
     end
   end
 

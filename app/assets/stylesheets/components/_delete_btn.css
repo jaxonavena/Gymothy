@@ -1,0 +1,12 @@
+.delete_btn {
+  padding: 5px;
+  margin: 5px auto;
+  background-color: red;
+  color: white;
+  border: 1px solid white;
+}
+
+.delete_btn:hover {
+  background-color: white;
+  color: red;
+}

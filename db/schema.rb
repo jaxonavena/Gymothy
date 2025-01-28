@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_15_192913) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_26_232634) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -82,7 +82,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_15_192913) do
     t.integer "business_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0, null: false
     t.index ["business_id"], name: "index_memberships_on_business_id"
+    t.index ["member_id", "business_id"], name: "index_memberships_on_member_id_and_business_id", unique: true
     t.index ["member_id"], name: "index_memberships_on_member_id"
   end
 
@@ -107,6 +109,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_15_192913) do
     t.boolean "admin", default: false, null: false
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "site_id", null: false
+    t.integer "count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id", "site_id"], name: "index_visits_on_member_id_and_site_id", unique: true
+    t.index ["member_id"], name: "index_visits_on_member_id"
+    t.index ["site_id"], name: "index_visits_on_site_id"
+  end
+
   add_foreign_key "comments", "articles"
   add_foreign_key "employees", "businesses"
   add_foreign_key "events", "businesses"
@@ -115,4 +128,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_15_192913) do
   add_foreign_key "memberships", "businesses"
   add_foreign_key "memberships", "members"
   add_foreign_key "sites", "businesses"
+  add_foreign_key "visits", "members"
+  add_foreign_key "visits", "sites"
 end

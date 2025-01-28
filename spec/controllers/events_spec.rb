@@ -1,55 +1,56 @@
 require 'rails_helper'
 
-RSpec.xdescribe "Events", type: :request do
-  let(:a_business) { build(:business) }
-  let(:an_event) { build(:event, business: a_business) }
-  let(:a_user) { build(:user, admin: true) }
+RSpec.xdescribe EventsController, type: :controller do
+  let(:a_business) { create(:business) }
+  let(:an_event) { create(:event, business: a_business) }
+  let(:a_user) { create(:user, admin: true) }
 
   before do
-    a_business.save!
-    an_event.save!
-    a_user.save!
     sign_in a_user
   end
 
-  describe "rendering events#index" do
+  describe "GET #index" do
     it "returns a successful response" do
-      get business_events_path(a_business)
+      get :index, params: { business_id: a_business.id }
       expect(response).to have_http_status(200)
     end
   end
 
-  describe "showing an event" do
+  describe "GET #show" do
     it "successfully renders an event" do
-      get business_event_path(a_business, an_event)
+      get :show, params: { business_id: a_business.id, id: an_event.id }
       expect(response).to have_http_status(200)
       expect(response.body).to include("Factory Event")
     end
   end
 
-  describe "creating an event" do
+  describe "POST #create" do
     it "creates a new event" do
       expect {
-        post business_events_path(a_business), params: { event: { name: "Jaxon's Event" } }
+        post :create, params: { business_id: a_business.id, event: { name: "Jaxon's Event" } }
       }.to change(Event, :count).by(1)
+
       expect(response).to redirect_to(business_event_path(a_business, Event.last))
     end
   end
 
-  describe "editing an event" do
+  describe "PATCH #update" do
     it "updates an event" do
-      patch business_event_path(an_event), params: { event: { name: "Updated Event" } }
+      patch :update, params: { business_id: a_business.id, id: an_event.id, event: { name: "Updated Event" } }
+
       expect(response).to redirect_to(business_event_path(a_business, an_event))
       an_event.reload
       expect(an_event.name).to eq("Updated Event")
     end
   end
 
-  describe "destroying an event" do
+  describe "DELETE #destroy" do
     it "deletes the event" do
+      an_event  # Ensure the event exists before the test
       expect {
-        delete business_event_path(a_business, an_event)
+        delete :destroy, params: { business_id: a_business.id, id: an_event.id }
       }.to change(Event, :count).by(-1)
+
       expect(response).to redirect_to(business_events_path(a_business))
     end
   end

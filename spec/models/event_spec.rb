@@ -78,9 +78,16 @@ RSpec.describe Event, type: :model do
       end
     end
 
-    xit "can destroy the interest" do
+    it "can destroy the interest" do
       expect(an_event.interests.last).to eq(a_member.interests.last)
-      expect { a_member.destroy_interest_in_event(an_event) }.to change { Interest.all.count }.from(1).to(0)
+
+      expect(an_event.interests.count).to eq(1)
+      a_member.destroy_interest_in_event(an_event)
+      expect(an_event.interests.count).to eq(0)
+
+      an_event.reload
+      a_member.reload
+
       expect(an_event.interests).to be_empty
       expect(a_member.interests).to be_empty
     end

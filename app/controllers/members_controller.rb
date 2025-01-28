@@ -3,10 +3,12 @@ class MembersController < ApplicationController
   before_action :set_member, only: %i[show edit update destroy]
 
   def index
-    @members = member.all
+    @members = Member.all
   end
 
   def show
+    @memberships = Membership.where(member_id: @member)
+    @visits = Visit.where(member_id: @member)
   end
 
   # def new

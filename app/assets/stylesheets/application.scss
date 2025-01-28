@@ -15,25 +15,5 @@
  */
 
 @import 'base/reset.css';
-@import 'components/nav.css';
-@import 'components/calendar.css';
+@import 'components';
 @import "simple_calendar";
-@import 'components/dropdown.css';
-
-//  .sectioned-display-container{
-//    display: flex;
-//    flex-direction: row;
-//    flex-wrap: wrap;
-//    justify-content: space-around;
-//    align-items: center;
-//  }
-
-//  .sectioned-display-item {
-//   flex: 1 1 calc(33% - 2vh); /* supposed to be 3 items per row with spacing, but it's doing 2*/
-//   margin: 1vh;
-//   background-color: white;
-//   border: 1px solid #ccc;
-//   padding: 1vh;
-//   text-align: center;
-//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-// }

@@ -48,7 +48,7 @@ class EventsController < ApplicationController
     @event.destroy!
 
     respond_to do |format|
-      format.html { redirect_to business_events_url(@business, @event), notice: "Event was successfully destroyed." }
+      format.html { redirect_to business_events_url(@business), notice: "Event was successfully destroyed." }
       format.json { head :no_content }
     end
   end

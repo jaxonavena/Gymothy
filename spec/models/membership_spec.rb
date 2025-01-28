@@ -11,7 +11,7 @@ RSpec.describe Membership, type: :model do
     a_membership.save!
   end
 
-  xdescribe "validity" do
+  describe "validity" do
     it 'is valid' do
       expect(a_membership).to be_valid
     end

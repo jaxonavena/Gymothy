@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="form">
+    <%= form_with(model: [@business, @membership]) do |form| %>
+      <%= form.hidden_field :business_id, value: params[:business_id] %>
+
+      <div>
+        <%= form.label :member_id, "New Member:" %>
+        <%= form.collection_select :member_id,
+        Member.where.not(id: Membership.where(business_id: @business.id).select(:member_id)),
+          :id, # id is the real value
+          :name, # name is the display value
+          prompt: "Choose a member" %>
+      </div>
+
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
