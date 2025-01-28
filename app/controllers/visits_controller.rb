@@ -19,6 +19,7 @@ class VisitsController < ApplicationController
     @visit = @site.visits.new(visit_params)
 
     if @visit.save
+      @visit.member.visit(@site) # The form creates the visit, but doesn't increment the :count by 1, so we do it here.
       redirect_to business_site_visit_path(@site.business, @site, @visit)
     else
       render :new, status: :unprocessable_entity
