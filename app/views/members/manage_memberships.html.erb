@@ -1,5 +1,5 @@
 <nav class="page-specific">
-  <h1><%= "Manage #{@member.name}'s Memberships" %></h1>
+  <h1><%= "#{@member.name}'s Memberships" %></h1>
   <%= link_to "Back to Business", business_path(@business), class: "nav-link" %>
   <%= link_to "Back to Member", business_member_path(@business, @member), class: "nav-link" %>
 </nav>

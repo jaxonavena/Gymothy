@@ -18,6 +18,7 @@ table {
   max-width: 95%;
   margin: 0 auto;
   box-shadow: var(--main-box-shadow);
+  word-wrap: break-word;
 }
 
 table caption {
@@ -29,6 +30,7 @@ table caption {
   background-color: var(--main-color);
   font-size: 20px;
   font-weight: bold;
+  min-width: 160px;
 }
 
 table th {
