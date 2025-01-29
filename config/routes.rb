@@ -25,7 +25,9 @@ Rails.application.routes.draw do
       resources :visits
     end
     resources :employees
-    resources :members
+    resources :members do
+      get "manage_memberships", on: :member
+    end
     resources :memberships
     resources :events
   end

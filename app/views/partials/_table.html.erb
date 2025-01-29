@@ -1,0 +1,18 @@
+<table>
+  <caption><%= title %></caption>
+  <thead>
+    <tr>
+      <% headers.each do |h| %>
+        <th><%= h %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% content.each do |c| %>
+    <tr>
+      <td><%= c.business.name %></td>
+      <td><%= c.status.upcase %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
