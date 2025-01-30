@@ -16,6 +16,6 @@
                                         title: "Memberships",
                                         headers: ["Business", "Status", "Subscription"],
                                         content: @memberships,
-                                        links: -> (bus) { business_path(bus) },
+                                        content_link: -> (m) { business_membership_path(m.business, m) },
                                       }%>
 

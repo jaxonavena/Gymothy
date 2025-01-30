@@ -48,3 +48,19 @@ table th, td {
 table tr:nth-child(even) {
   background-color: #f2f2f2; /* gray background for alternating rows */
 }
+
+table .manage {
+  float: right;
+  border: 1px var(--main-color) solid;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: var(--main-accent);
+  color: white;
+}
+
+table .manage:hover {
+  box-shadow: var(--main-box-shadow);
+  color: var(--main-color);
+  background-color: white;
+  border: 1px var(--main-accent) solid;
+}

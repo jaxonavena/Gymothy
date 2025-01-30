@@ -12,7 +12,10 @@
     <tr>
       <td><%= c.business.name %></td>
       <td><%= c.status.upcase %></td>
-      <td><%= "N/A" %></td>
+      <td>
+        <%= c.subscription.upcase %>
+        <span class="manage"><%= link_to "Manage", content_link.call(c)%><span>
+      </td>
     </tr>
     <% end %>
   </tbody>
