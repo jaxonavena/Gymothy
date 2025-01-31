@@ -16,6 +16,8 @@
                                         title: "Memberships",
                                         headers: ["Business", "Status", "Subscription"],
                                         content: @memberships,
-                                        content_link: -> (m) { business_membership_path(m.business, m) },
+                                        attributes: ["business.name", "status", "subscription"],
+                                        btn_name: "Manage",
+                                        btn_link: -> (m) { business_membership_path(m.business, m) },
                                       }%>
 

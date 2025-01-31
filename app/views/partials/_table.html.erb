@@ -1,3 +1,19 @@
+<%#
+
+Example call:
+
+render partial: "partials/table", locals: {
+                                  title: "Memberships",
+                                  headers: ["Business", "Status", "Subscription"],
+                                  content: @memberships,
+                                  attributes: ["business.name", "status", "subscription"],
+                                  btn_name: "Manage",
+                                  btn_link: -> (m) { business_membership_path(m.business, m) },
+                                }
+
+%>
+
+<% btn_link ||= nil; btn_name ||= nil %>
 <table>
   <caption><%= title %></caption>
   <thead>
@@ -10,12 +26,16 @@
   <tbody>
     <% content.each do |c| %>
     <tr>
-      <td><%= c.business.name %></td>
-      <td><%= c.status.upcase %></td>
-      <td>
-        <%= c.subscription.upcase %>
-        <span class="manage"><%= link_to "Manage", content_link.call(c)%><span>
-      </td>
+      <% attributes.each_with_index do |attr, i| %>
+        <td>
+          <%= attr.to_s.split('.').inject(c) { |obj, method| obj&.public_send(method) }&.to_s&.upcase %>
+
+          <%# Specifically to include the button in the last attr's box if there is a button%>
+          <% if i == attributes.length - 1 and btn_name and btn_link%>
+            <span class="tbl-btn"><%= link_to "#{btn_name}", btn_link.call(c) %></span>
+          <% end %>
+        </td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>

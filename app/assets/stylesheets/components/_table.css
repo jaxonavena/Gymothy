@@ -1,15 +1,3 @@
-/* table {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  border: 3px solid red;
-  background-color: white;
-  max-width: 95%;
-  padding: 10px;
-  margin: 30px auto;
-  border-collapse: collapse;
-} */
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -49,7 +37,7 @@ table tr:nth-child(even) {
   background-color: #f2f2f2; /* gray background for alternating rows */
 }
 
-table .manage {
+table .tbl-btn {
   float: right;
   border: 1px var(--main-color) solid;
   padding: 5px;
@@ -58,7 +46,7 @@ table .manage {
   color: white;
 }
 
-table .manage:hover {
+table .tbl-btn:hover {
   box-shadow: var(--main-box-shadow);
   color: var(--main-color);
   background-color: white;
