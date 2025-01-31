@@ -25,6 +25,9 @@
                                           content: @visits,
                                           attributes: ["member.name",
                                                         "count",
+                                                        lambda {|v| v.member.memberships.where(business_id: @site.business.id).first.status.upcase },
                                                       ],
                                         }%>
 <% end %>
+
+<%# Object.where("business_id = ?", #{@site.business.id}) %>
