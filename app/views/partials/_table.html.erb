@@ -1,5 +1,12 @@
 <%#
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+If you are trying to call an attribute that hasn't been used in the past,
+you will have to whitelist it in safe_send.rb
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 Example call:
 
 render partial: "partials/table", locals: {
@@ -28,7 +35,10 @@ render partial: "partials/table", locals: {
     <tr>
       <% attributes.each_with_index do |attr, i| %>
         <td>
-          <%= attr.to_s.split('.').inject(c) { |obj, method| obj&.public_send(method) }&.to_s&.upcase %>
+          <%= attr.to_s.split('.').inject(c) do |obj, method|
+                SafeSend.safe_send(obj, method)
+              end&.to_s&.upcase
+          %>
 
           <%# Specifically to include the button in the last attr's box if there is a button%>
           <% if i == attributes.length - 1 and btn_name and btn_link%>

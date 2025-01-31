@@ -10,6 +10,7 @@ class SitesController < ApplicationController
 
   def show
     @visitors = @site.members
+    @visits = Visit.where(site_id: params[:id])
   end
 
   def new

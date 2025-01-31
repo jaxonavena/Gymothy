@@ -4,14 +4,6 @@
   <%= link_to "Back to Member", business_member_path(@business, @member), class: "nav-link" %>
 </nav>
 
-<%# ignore, going to remove later. using to design the table partial %>
-<% @memberships.each do |membership| %>
-  <div class="g-row">
-    <% link_to membership.business.name, business_path(membership.business)%>:
-    <% membership.status.upcase %>
-  </div>
-<% end %>
-
 <%= render partial: "partials/table", locals: {
                                         title: "Memberships",
                                         headers: ["Business", "Status", "Subscription"],
