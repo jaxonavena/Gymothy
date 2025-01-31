@@ -9,7 +9,7 @@
       <% model.each do |m| %>
         <%= link_to m.name, path_.call(m)%>
       <% end %>
-    <% else %>
+    <% elsif message %>
       <div class="dropdown-empty-message" ><%= message %></div>
     <% end %>
   </div>

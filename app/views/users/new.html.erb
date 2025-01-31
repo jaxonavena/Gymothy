@@ -1,10 +1,15 @@
-<% if flash[:notice] %>
-  <%= content_tag :h1, flash[:notice] %>
-<% else %>
-  <%= content_tag :h1, "Sign Up" %>
-<% end %>
-<%= form_with model: @user do |f| %>
-  <%= f.text_field :email %><br>
-  <%= f.password_field :password %><br>
-  <%= f.submit "All Done!" %>
-<% end %>
+<nav class="page-specific">
+  <% if flash[:notice] %>
+    <%= content_tag :h1, flash[:notice] %>
+  <% else %>
+    <%= content_tag :h1, "Sign Up" %>
+  <% end %>
+</nav>
+
+<body>
+  <%= form_with model: @user do |f| %>
+    <%= f.text_field :email %><br>
+    <%= f.password_field :password %><br>
+    <%= f.submit "All Done!" %>
+  <% end %>
+</body>
