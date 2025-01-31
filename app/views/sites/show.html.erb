@@ -18,11 +18,13 @@
   </div>
 </div>
 
-<%= render partial: "partials/table", locals: {
-                                        title: "Visitors",
-                                        headers: ["Visitor", "Count", "Subscription"],
-                                        content: @visits,
-                                        attributes: ["member.name",
-                                                      "count",
-                                                    ],
-                                      }%>
+<% if @visits.any?%>
+  <%= render partial: "partials/table", locals: {
+                                          title: "Visitors",
+                                          headers: ["Visitor", "Count", "Subscription"],
+                                          content: @visits,
+                                          attributes: ["member.name",
+                                                        "count",
+                                                      ],
+                                        }%>
+<% end %>

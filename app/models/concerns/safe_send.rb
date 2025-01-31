@@ -16,7 +16,7 @@ module SafeSend
   ].freeze
 
   def safe_send(object, method)
-    return "#{method} is not an authorized method" \
+    return "#{method}" \
       unless SAFE_METHODS.include?(method) && BLOCKED_METHODS.exclude?(method)
 
     object.public_send(method)

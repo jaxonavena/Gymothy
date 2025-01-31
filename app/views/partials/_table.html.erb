@@ -35,10 +35,12 @@ render partial: "partials/table", locals: {
     <tr>
       <% attributes.each_with_index do |attr, i| %>
         <td>
-          <%= attr.to_s.split('.').inject(c) do |obj, method|
-                SafeSend.safe_send(obj, method)
-              end&.to_s&.upcase
-          %>
+          <% if attr.match(/where/) %>
+            <% resolve = attr.match(/where\((.+)\)/) %>
+            <%= resolve_attr(c, resolve[1]) if resolve && resolve[1] %>
+          <% else %>
+            <%= resolve_attr(c, attr) %>
+          <% end %>
 
           <%# Specifically to include the button in the last attr's box if there is a button%>
           <% if i == attributes.length - 1 and btn_name and btn_link%>
