@@ -10,29 +10,35 @@
 <div class="grid">
 
   <div class="grid-item">
-    <div class="grid-item">
-      <div class="card">
-        picture
+    <div class="grid-card">
+      picture
+    </div>
+    <div class="grid-card">
+      <div>
+        <%= "Member: #{@membership.member.name}" %>
+      </div>
+      <div>
+        <%= "Business: #{@membership.business.name}" %>
       </div>
     </div>
-    <div class="grid-item">
-      <div class="card">
-        info
-      </div>
+    <div class="grid-card">
+      attendance
     </div>
   </div>
 
   <div class="grid-item">
-    <div class="grid-item">
-      <div class="card">
-        subscription
+    <div class="grid-card">
+      <div>
+        <%= @membership.status.upcase %>
+        <%= @membership.subscription.upcase %>
+      </div>
+      for
+      <div>
+        <%= @membership.business.name %>
       </div>
     </div>
-    <div class="grid-item">
-      <div class="card">
-        payments
-      </div>
+    <div class="grid-card">
+      payments
     </div>
   </div>
-
 </div>

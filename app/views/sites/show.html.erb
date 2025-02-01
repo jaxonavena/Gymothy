@@ -2,12 +2,12 @@
   <h1><%= @site.name %></h1>
   <%= link_to "Back to Business", business_path(@site.business), class: "nav-link" %>
   <%= render partial: "partials/nav_dropdown", locals: {
-                                      title: "Visitors",
-                                      path_: -> (model) { business_member_path(@business, model) },
-                                      model: @visitors,
-                                      message: "This Site Has No Visitors",
-                                      form_path: -> () { new_business_site_visit_path(@business, @site) },
-                                      } %>
+                                              title: "Visitors",
+                                              path_: -> (model) { business_member_path(@business, model) },
+                                              model: @visitors,
+                                              message: "This Site Has No Visitors",
+                                              form_path: -> () { new_business_site_visit_path(@business, @site) },
+                                              } %>
 </nav>
 
 <div class="container">
@@ -29,5 +29,3 @@
                                                       ],
                                         }%>
 <% end %>
-
-<%# Object.where("business_id = ?", #{@site.business.id}) %>

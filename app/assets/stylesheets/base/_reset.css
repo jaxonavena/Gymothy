@@ -14,7 +14,7 @@ img {
 }
 
 body {
-  background-color:rgb(236, 236, 236);
+  background-color: var(--main-background-color);
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,19 @@ a {
 }
 
 :root {
+  /* Palette */
+  --c1: #00429d;
+  --c2: #2e59a8;
+  --c3: #4771b2;
+  --c4: #5d8abd;
+  --c5: #73a2c6;
+  --c6: #8abccf;
+  --c7: #a5d5d8;
+  --c8: #c5eddf;
+  --c9: #ffffe0;
+
   --main-color:rgb(46, 79, 128);
   --main-accent: rgb(66, 129, 217);
+  --main-background-color: rgb(236, 236, 236);
   --main-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
