@@ -1,5 +1,5 @@
 <div class="dropdown">
-  <button class="dropbtn nav-link"><%= title %></button>
+  <div class="dropbtn nav-link"><%= title %></div>
   <div class = "dropdown-content">
     <% if form_path %>
      <%= link_to "Add #{title.chop}", form_path.call(), class: "dropdown-special"  %>
