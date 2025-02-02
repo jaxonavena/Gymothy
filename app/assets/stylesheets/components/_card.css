@@ -3,6 +3,7 @@
   padding: 20px;
   display: inline-block;
   border: 3px solid var(--main-color);
+  border-radius: 5px;
   box-shadow: var(--main-box-shadow);
   margin: 10px auto;
 }
