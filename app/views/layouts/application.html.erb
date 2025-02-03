@@ -11,12 +11,26 @@
   </head>
 
   <nav id="main-nav">
-    <div>Home Sign Out</div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= link_to "Home", root_path, class: "nav-link" %>
+    <%= link_to "Sign Out", logout_path(), method: :delete, class: "nav-link" %>
+    <% if notice || alert %>
+      <div class="flash-box">
+        <% if notice %>
+          <p class="notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+        <p class="alert"><%= alert %></p>
+        <% end %>
+      <div>
+    <% end %>
   </nav>
 
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+    <div>Gymothy</div>
+    <div><%= "Jaxon's LLC (or something) @#{Date.today.year}"%></div>
+  </footer>
 </html>

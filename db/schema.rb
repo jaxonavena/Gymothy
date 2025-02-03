@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_26_232634) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_31_065621) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -83,6 +83,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_26_232634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0, null: false
+    t.integer "subscription", default: 0, null: false
     t.index ["business_id"], name: "index_memberships_on_business_id"
     t.index ["member_id", "business_id"], name: "index_memberships_on_member_id_and_business_id", unique: true
     t.index ["member_id"], name: "index_memberships_on_member_id"
@@ -107,6 +108,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_26_232634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   create_table "visits", force: :cascade do |t|

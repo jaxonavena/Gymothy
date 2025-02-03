@@ -1,1 +1,54 @@
-membership show
+<script src="https://js.stripe.com/v3/">
+  document.getElementById("checkout-button").addEventListener("click", async () => {
+    const response = await fetch("/checkout/create", { method: "POST" });
+    const { id } = await response.json();
+
+    const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+    stripe.redirectToCheckout({ sessionId: id });
+  });
+</script>
+
+<nav class="page-specific">
+  <div>
+    <h1><%= "Hi #{@membership.member.name}." %></h1>
+    <h6><%= "Manage your #{@membership.business.name} membership below." %></h6>
+  </div>
+  <%= link_to "Back to Business", business_path(@business), class: "nav-link" %>
+  <%= link_to "Back to Member", business_member_path(@business, @membership.member), class: "nav-link" %>
+</nav>
+
+<div class="grid">
+
+  <div class="grid-item">
+    <div class="grid-card">
+      picture
+    </div>
+    <div class="grid-card">
+      <div>
+        <%= "Member: #{@membership.member.name}" %>
+      </div>
+      <div>
+        <%= "Business: #{@membership.business.name}" %>
+      </div>
+    </div>
+    <div class="grid-card">
+      attendance
+    </div>
+  </div>
+
+  <div class="grid-item">
+    <div class="grid-card">
+      <div>
+        <%= @membership.status.upcase %>
+        <%= @membership.subscription.upcase %>
+      </div>
+      for
+      <div>
+        <%= @membership.business.name %>
+      </div>
+    </div>
+    <div class="grid-card" id = "payments">
+      <button id="checkout-button">Pay with Stripe</button>
+    </div>
+  </div>
+</div>

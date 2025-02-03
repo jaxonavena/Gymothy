@@ -1,5 +1,6 @@
 .calendar {
   background-color: rgba(255, 255, 255, 0.829);
+  min-width: 50%;
   max-width: 95%;
   margin: 20px auto;
 }

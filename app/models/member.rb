@@ -47,11 +47,11 @@ class Member < ApplicationRecord
   end
 
   def find_event_interest(event)
-    Interest.find_by(event_id: event.id, member_id: id)
+    Interest.find_or_create_by!(event_id: event.id, member_id: id)
   end
 
   def visit(site)
-    visit = Visit.find_or_create_by!(member: self, site: site)
+    visit = Visit.find_or_create_by!(member_id: id, site_id: site)
     visit.count += 1
     visit.save!
   end

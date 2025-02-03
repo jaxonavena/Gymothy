@@ -1,0 +1,44 @@
+.grid {
+  flex: 1; /* Allows grid to take up remaining space */
+  border: 3px solid var(--main-accent);
+  border-radius: 10px;
+  margin: 0 auto 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2px;
+  width: 90%;
+  max-width: 1200px;
+  overflow: auto;
+  background-color: var(--c3);
+}
+
+.grid-item {
+  background-color: var(--c5);
+  padding: 20px 2px;
+  text-align: center;
+  border: 2px solid var(--main-color);
+  border-radius: inherit;
+}
+
+.grid-card {
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px 2px;
+  text-align: center;
+  border: 2px solid var(--main-accent);
+  border-radius: inherit;
+  max-width: 98%;
+  min-height: 25%;
+  transition: bottom 0.9s ease, box-shadow 0.3s ease;
+}
+
+.grid-card:hover {
+  position: relative;
+  bottom: 10px;
+  background-color: var(--c6) !important;
+  box-shadow: var(--main-box-shadow);
+}
+
+.grid-card#payments {
+  background-color: var(--c3);
+}

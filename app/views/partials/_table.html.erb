@@ -1,0 +1,49 @@
+<%#
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+If you are trying to call an attribute that hasn't been used in the past,
+you will have to whitelist it in safe_send.rb
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Example call:
+
+render partial: "partials/table", locals: {
+                                  title: "Memberships",
+                                  headers: ["Business", "Status", "Subscription"],
+                                  content: @memberships,
+                                  attributes: ["business.name", "status", "subscription"],
+                                  btn_name: "Manage",
+                                  btn_link: -> (m) { business_membership_path(m.business, m) },
+                                }
+
+%>
+
+<% btn_link ||= nil; btn_name ||= nil %>
+<table>
+  <caption><%= title %></caption>
+  <thead>
+    <tr>
+      <% headers.each do |h| %>
+        <th><%= h %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% content.each do |c| %>
+    <tr>
+      <% attributes.each_with_index do |attr, i| %>
+        <td>
+          <%= resolve_attr(c, attr) %>
+
+          <%# include the button in the last attr's box if there is a button%>
+          <% if i == attributes.length - 1 and btn_name and btn_link%>
+            <span class="tbl-btn"><%= link_to "#{btn_name}", btn_link.call(c) %></span>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

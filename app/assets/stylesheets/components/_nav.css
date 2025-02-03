@@ -7,8 +7,13 @@ nav {
   width: 100%;
   display: block;
   position: fixed;
-  background-color: rgb(66, 129, 217);
+  background-color: var(--main-accent);
   z-index: 1;
+  padding: 1px;
+}
+
+#main-nav a {
+  border: none;
 }
 
 nav.page-specific {
@@ -19,6 +24,7 @@ nav.page-specific {
   gap: 20px; /* Adds spacing between items */
   padding: 10px 20px;
   margin: 0 0 20px 0;
+  border-bottom: 0.1em solid var(--main-accent);
 }
 
 .nav-link {
@@ -29,7 +35,7 @@ nav.page-specific {
   border: 1px solid transparent;
 }
 
-.nav-link:hover, .navbar a:hover {
+.nav-link:hover {
   color: #09445f;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 5px;

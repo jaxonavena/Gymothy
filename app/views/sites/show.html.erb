@@ -2,12 +2,12 @@
   <h1><%= @site.name %></h1>
   <%= link_to "Back to Business", business_path(@site.business), class: "nav-link" %>
   <%= render partial: "partials/nav_dropdown", locals: {
-                                      title: "Visitors",
-                                      path_: -> (model) { business_member_path(@business, model) },
-                                      model: @visitors,
-                                      message: "This Site Has No Visitors",
-                                      form_path: -> () { new_business_site_visit_path(@business, @site) },
-                                      } %>
+                                              title: "Visitors",
+                                              path_: -> (model) { business_member_path(@business, model) },
+                                              model: @visitors,
+                                              message: "This Site Has No Visitors",
+                                              form_path: -> () { new_business_site_visit_path(@business, @site) },
+                                              } %>
 </nav>
 
 <div class="container">
@@ -16,13 +16,16 @@
     <p>Site ID: <%= @site.id %></p>
     <%= button_to "Destroy this site", business_site_path(@business, @site), method: :delete, class: "delete_btn" %>
   </div>
-
-  <% if @visitors.any? %>
-    <div class="card">
-      Visitors
-      <% @visitors.each do |member| %>
-        <div><%= link_to member.name, business_member_path(@site.business, member) %></div>
-      <% end %>
-    </div>
-  <% end %>
 </div>
+
+<% if @visits.any?%>
+  <%= render partial: "partials/table", locals: {
+                                          title: "Visitors",
+                                          headers: ["Visitor", "Count", "Subscription"],
+                                          content: @visits,
+                                          attributes: ["member.name",
+                                                        "count",
+                                                        lambda {|v| v.member.memberships.where(business_id: @site.business.id).first.status.upcase },
+                                                      ],
+                                        }%>
+<% end %>

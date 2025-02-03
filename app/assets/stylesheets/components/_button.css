@@ -1,0 +1,31 @@
+button {
+  background-color: var(--btn-blue);
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; /* change cursor on hover */
+}
+
+button:hover {
+  transform: scale(1.1); /* Slightly enlarges */
+  background-color: var(--btn-hover); /* Darker color when hovered */
+}
+
+button:active {
+  background-color: var(--btn-active); /* Even darker color when clicked */
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button.round {
+  border-radius: 50px;
+}
+
+button.square {
+  border-radius: 0;
+}

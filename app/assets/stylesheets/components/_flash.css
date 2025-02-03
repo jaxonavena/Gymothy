@@ -1,0 +1,21 @@
+.flash-box {
+  padding: 50px 0px 0px 30px;
+  z-index: 10;
+  font-weight: bold;
+  position: absolute;
+}
+
+.flash-box .notice, .flash-box .alert {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid var(--main-accent);
+  border-radius: 10px 5px;
+}
+
+.flash-box .notice {
+  color: green;
+}
+
+.flash-box .alert {
+  color: red;
+}
