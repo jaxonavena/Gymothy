@@ -11,3 +11,7 @@
 .card a:hover {
   color: white;
 }
+
+.grid .card {
+  width: 100%;
+}

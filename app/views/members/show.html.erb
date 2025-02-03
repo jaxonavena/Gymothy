@@ -4,9 +4,17 @@
   <%= link_to "Manage Memberships", manage_memberships_business_member_path(@business, @member), class: "nav-link" %>
 </nav>
 
-<div class="container">
+<div class="grid">
+  <div class="grid-item">
+    <div class="grid-card">
+      picture
+    </div>
+    <div class="grid-card">
+      something
+    </div>
+  </div>
+
   <div class="card">
-    Info:
     <p><%= @member.email %></p>
     <p><%= @member.phone_number %></p>
     <p>
