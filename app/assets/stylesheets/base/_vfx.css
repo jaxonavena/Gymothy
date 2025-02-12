@@ -2,3 +2,7 @@
 .pl-rt {
   float: right;
 }
+
+.hidden {
+  display: none;
+}

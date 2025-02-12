@@ -1,0 +1,10 @@
+.checkout-expanded {
+  transition: max-height 0.3s ease-in-out;
+  max-height: 100%;
+}
+
+.checkout-collapsed {
+  max-height: 100%; /* starts as collapsed */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}

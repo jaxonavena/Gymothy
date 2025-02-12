@@ -38,7 +38,7 @@ render partial: "partials/table", locals: {
           <%= resolve_attr(c, attr) %>
 
           <%# include the button in the last attr's box if there is a button%>
-          <% if i == attributes.length - 1 and btn_name and btn_link%>
+          <% if btn_name and btn_link and i == attributes.length - 1 %>
             <span class="tbl-btn"><%= link_to "#{btn_name}", btn_link.call(c) %></span>
           <% end %>
         </td>

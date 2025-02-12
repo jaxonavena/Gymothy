@@ -1,11 +1,22 @@
-<script src="https://js.stripe.com/v3/">
-  document.getElementById("checkout-button").addEventListener("click", async () => {
-    const response = await fetch("/checkout/create", { method: "POST" });
-    const { id } = await response.json();
+<script>
+  // document.getElementById("checkout-button").addEventListener("click", async () => {
+  //   const response = await fetch("/checkout/create", { method: "POST" });
+  //   const { id } = await response.json();
 
-    const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
-    stripe.redirectToCheckout({ sessionId: id });
-  });
+  //   const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+  //   stripe.redirectToCheckout({ sessionId: id });
+  // });
+
+  document.addEventListener("DOMContentLoaded", function () {
+      const button = document.getElementById("checkout-button");
+      const form = document.getElementById("checkout-form");
+
+      if (button && form) {
+        button.addEventListener("click", () => {
+          form.classList.toggle("hidden");
+        });
+      }
+    });
 </script>
 
 <nav class="page-specific">
@@ -40,6 +51,26 @@
         <%= @membership.business.name %>
       </div>
     </div>
-    <button id="checkout-button">Pay with Stripe</button>
+
+    <div id="checkout-container" class="checkout-collapsed">
+      <button id="checkout-button">Pay with Stripe</button>
+      <div id="checkout-form" class="hidden grid-card">
+        <h3>Enter Payment Details</h3>
+        <label for="card-holder-name">Name on Card:</label>
+        <input type="text" id="card-holder-name" name="card_holder_name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="card-details">Card Details:</label>
+        <div id="card-details"></div>
+        <!-- Stripe stuff here -->
+
+        <button id="submit-payment">Submit Payment</button>
+      </div>
+    </div>
   </div>
+
+
 </div>
+
