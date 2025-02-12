@@ -18,11 +18,7 @@
 </nav>
 
 <div class="grid">
-
   <div class="grid-item">
-    <div class="grid-card">
-      picture
-    </div>
     <div class="grid-card">
       <div>
         <%= "Member: #{@membership.member.name}" %>
@@ -34,9 +30,6 @@
     <div class="grid-card">
       attendance
     </div>
-  </div>
-
-  <div class="grid-item">
     <div class="grid-card">
       <div>
         <%= @membership.status.upcase %>
@@ -47,8 +40,6 @@
         <%= @membership.business.name %>
       </div>
     </div>
-    <div class="grid-card" id = "payments">
-      <button id="checkout-button">Pay with Stripe</button>
-    </div>
+    <button id="checkout-button">Pay with Stripe</button>
   </div>
 </div>
