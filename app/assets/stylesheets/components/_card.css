@@ -3,10 +3,15 @@
   padding: 20px;
   display: inline-block;
   border: 3px solid var(--main-color);
+  border-radius: 5px;
   box-shadow: var(--main-box-shadow);
   margin: 10px auto;
 }
 
 .card a:hover {
   color: white;
+}
+
+.grid .card {
+  width: 100%;
 }

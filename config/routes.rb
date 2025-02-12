@@ -19,13 +19,16 @@ Rails.application.routes.draw do
   # Stripe webhooks
   post '/webhooks/stripe', to: 'webhooks#stripe'
 
-  resources :businesses do
+  resources :businesses, path: "b" do
     get "analytics", on: :member # not referring to Member model, referring to business instance
     resources :sites do
       resources :visits
     end
     resources :employees
-    resources :members
+    resources :members do
+      get "manage_memberships", on: :member
+      # get "manage", to: "members#manage_memberships", on: :member
+    end
     resources :memberships
     resources :events
   end

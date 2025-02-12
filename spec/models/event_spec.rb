@@ -50,8 +50,8 @@ RSpec.describe Event, type: :model do
     let(:a_membership) { build(:membership, member: a_member, business: a_business) }
 
     before do
-      a_member.set_interest_in_event(an_event)
       a_member.save!
+      a_member.set_interest_in_event(an_event)
       a_business.save!
     end
 

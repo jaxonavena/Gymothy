@@ -20,7 +20,7 @@ class Site < ApplicationRecord
 
   belongs_to :business
 
-  has_many :visits
+  has_many :visits, dependent: :destroy
   has_many :members, through: :visits
 
   validates :latitude, presence: true

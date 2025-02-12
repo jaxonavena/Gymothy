@@ -9,7 +9,6 @@
 /* Dropdown button */
 .dropdown .dropbtn {
   font-size: 16px;
-  border: none;
   outline: none;
   color: white;
   padding: 14px 16px;
@@ -42,7 +41,6 @@
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  color: black;
   background-color: #ddd;
 }
 

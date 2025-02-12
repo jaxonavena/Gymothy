@@ -16,4 +16,17 @@ RSpec.describe Membership, type: :model do
       expect(a_membership).to be_valid
     end
   end
+
+  describe "status" do
+    it "defaults to active" do
+      expect(a_membership.status).to eq("active")
+      expect(a_membership.active?).to eq(true)
+    end
+  end
+
+  describe "subscription" do
+    it "defaults to trial" do
+      expect(a_membership.subscription).to eq("trial")
+    end
+  end
 end

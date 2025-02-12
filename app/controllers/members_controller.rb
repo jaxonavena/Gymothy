@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   before_action :set_business
-  before_action :set_member, only: %i[show edit update destroy]
+  before_action :set_member, only: %i[show edit update destroy manage_memberships]
 
   def index
     @members = Member.all
@@ -33,6 +33,10 @@ class MembersController < ApplicationController
 
   def destroy
     @member.destroy!
+  end
+
+  def manage_memberships
+    @memberships = @member.memberships
   end
 
   private
