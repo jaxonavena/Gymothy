@@ -79,5 +79,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # To use the asset pipeline version of turbo, you must have
 gem 'importmap-rails'
 
+gem 'stimulus-rails'
+
 # turbotastic
 gem 'turbo-rails'
