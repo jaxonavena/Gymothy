@@ -2,13 +2,18 @@
 <html>
   <head>
     <title>Gymothy</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+
+    <%# Load Leaflet CSS before JS %>
+    <%= stylesheet_link_tag "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css", integrity: "sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==", crossorigin: "" %>
+
+    <%= javascript_importmap_tags %>
   </head>
+
 
   <nav id="main-nav">
     <%= link_to "Home", root_path, class: "nav-link" %>
